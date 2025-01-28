@@ -21,4 +21,4 @@ find_package(Threads REQUIRED)
 find_package(GTest REQUIRED)
 
 add_executable(galaxy_test ${SOURCE_FILES})
-target_link_libraries(galaxy_test PRIVATE ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} Threads::Threads)
+target_link_libraries(galaxy_test PRIVATE ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} GTest::gmock Threads::Threads)
