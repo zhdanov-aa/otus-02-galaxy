@@ -1,4 +1,4 @@
-#include "../include/Move.h"
+#include <Move.h>
 #include <exception>
 
 Move::Move(std::shared_ptr<IMoveObject> moveObject)

@@ -1,4 +1,4 @@
-#include "IMoveObject.h"
+#include "IMovingObject.h"
 #include <memory>
 
 class Move

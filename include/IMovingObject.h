@@ -1,7 +1,9 @@
+#include <Vector2D.h>
+
 class IMovingObject
 {
 public:
-    virtual Location getLocation(void) = 0;
-    virtual Velocity getVelocity(void) = 0;
-    virtual void setLocation(Location newLocation) = 0;
+    virtual Vector2D getLocation(void) = 0;
+    virtual Vector2D getVelocity(void) = 0;
+    virtual void setLocation(Vector2D newLocation) = 0;
 };

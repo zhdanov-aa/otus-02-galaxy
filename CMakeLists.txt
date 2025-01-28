@@ -14,6 +14,7 @@ set(SOURCE_FILES
     ./tests/main.cpp 
     ./tests/Move_test.cpp
     ./source/Move.cpp
+    ./source/Vector2D.cpp
     )
 
 find_package(Threads REQUIRED)
