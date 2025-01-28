@@ -1,7 +1,7 @@
 #include <Move.h>
 #include <exception>
 
-Move::Move(std::shared_ptr<IMoveObject> moveObject)
+Move::Move(std::shared_ptr<IMovingObject> moveObject)
 {
     m_Object = moveObject;
 }
