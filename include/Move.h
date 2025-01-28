@@ -3,10 +3,10 @@
 
 class Move
 {
-    std::shared_ptr<IMoveObject> m_Object;
+    std::shared_ptr<IMovingObject> m_Object = nullptr;
 
 public:
-    Move(std::shared_ptr<IMoveObject> moveObject);
+    Move(std::shared_ptr<IMovingObject> moveObject);
 
     void Execute(void);
 };

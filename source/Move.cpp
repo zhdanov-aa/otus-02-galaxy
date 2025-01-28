@@ -9,5 +9,12 @@ Move::Move(std::shared_ptr<IMoveObject> moveObject)
 
 void Move::Execute(void)
 {
-    throw std::runtime_error("MoveAction::execute() is not implemented");
+    if (m_Object != nullptr)
+    {
+        m_Object->setLocation( m_Object->getLocation() + m_Object->getVelocity() );
+    }
+    else 
+    {
+        throw std::runtime_error("Move::m_Object is nullptr");
+    }
 }

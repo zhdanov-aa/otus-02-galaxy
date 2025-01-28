@@ -1,4 +1,4 @@
-class IMoveObject
+class IMovingObject
 {
 public:
     virtual Location getLocation(void) = 0;
