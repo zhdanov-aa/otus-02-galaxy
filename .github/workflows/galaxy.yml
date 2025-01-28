@@ -1,0 +1,28 @@
+
+name: GALAXY CI
+
+on:
+    push:
+        branches: [ "main", "develop" ]
+    pull_request:
+        branches: [ "main", "develop" ]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: install gtest
+              run: sudo apt-get install -y libgtest-dev libgmock-dev 
+
+            - name: checkout
+              uses: actions/checkout@v4
+            
+            - name: configure
+              run: mkdir build; cd build; cmake ..;
+
+            - name: build tests
+              run: cd build; make;
+
+            - name: run tests
+              run: cd build; ./galaxy_test;
