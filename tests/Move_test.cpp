@@ -2,7 +2,7 @@
 #include <gmock/gmock.h>
 #include <Move.h>
 
-class IMovingObjectMock: public IMovingObject
+class MovingObjectMock: public IMovingObject
 {
 public:
     MOCK_METHOD0(getLocation, Vector2D());
@@ -12,5 +12,8 @@ public:
 
 TEST(Move, execute)
 {
+    std::shared_ptr<MovingObjectMock> mo = std::make_ptr<MovingObjectMock>();
+    Move m(mo);
+    
     EXPECT_TRUE(true);
 }
