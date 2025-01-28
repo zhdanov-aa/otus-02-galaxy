@@ -1,5 +1,5 @@
 #include <Move.h>
-#include <exception>
+#include <stdexcept>
 
 Move::Move(std::shared_ptr<IMovingObject> moveObject)
 {
