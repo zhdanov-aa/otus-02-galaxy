@@ -5,9 +5,9 @@
 class IMovingObjectMock: public IMovingObject
 {
 public:
-    MOCK_METHOD(Vector2D, getLocation, (void), (override));
-    MOCK_METHOD(Vector2D, getVelocity, (void), (override));
-    MOCK_METHOD(void, setLocation, (Vector2D newLocation), (override));
+    MOCK_METHOD0(getLocation, Vector2D());
+    MOCK_METHOD0(getVelocity, Vector2D());
+    MOCK_METHOD1(setLocation, void(Vector2D));
 };
 
 TEST(Move, execute)
