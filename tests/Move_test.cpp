@@ -15,5 +15,7 @@ TEST(Move, execute)
     std::shared_ptr<MovingObjectMock> mo = std::make_shared<MovingObjectMock>();
     Move m(mo);
 
-    EXPECT_TRUE(true);
+    EXPECT_CALL(mo, getLocation()).WillOnce(Return(Vector2D(12,5)));
+
+    m.execute();
 }
