@@ -16,6 +16,8 @@ TEST(Move, execute)
     Move m(mo);
 
     EXPECT_CALL(*mo, getLocation()).WillOnce(testing::Return(Vector2D(12,5)));
+    EXPECT_CALL(*mo, getVelocity()).WillOnce(testing::Return(Vector2D(-7,3)));
+    EXPECT_CALL(*mo, setLocation(Vector2D(5,8)));
 
     m.Execute();
 }
