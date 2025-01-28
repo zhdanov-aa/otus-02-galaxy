@@ -12,8 +12,8 @@ public:
 
 TEST(Move, execute)
 {
-    std::shared_ptr<MovingObjectMock> mo = std::make_ptr<MovingObjectMock>();
+    std::shared_ptr<MovingObjectMock> mo = std::make_shared<MovingObjectMock>();
     Move m(mo);
-    
+
     EXPECT_TRUE(true);
 }
