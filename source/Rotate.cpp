@@ -1,4 +1,4 @@
-#include <Rotate.h"
+#include <Rotate.h>
 #include <exception>
 
 Rotate::Rotate(std::shared_ptr<IRotatingObject> rotatingObject)
