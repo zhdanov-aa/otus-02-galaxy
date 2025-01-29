@@ -1,3 +1,4 @@
+#include <IRotatingObject.h>
 #include <memory>
 
 
