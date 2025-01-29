@@ -31,8 +31,8 @@ TEST(Move, GetLocationFailException)
     ON_CALL(*mo, getVelocity).WillByDefault(testing::Return(Vector2D(-7, 3)));
 
     EXPECT_CALL(*mo, getLocation()).Times(testing::AnyNumber());
-    EXPECT_CALL(*mo, getVelocity()).Times(testing::AnyNumber());.
-    EXPECT_CALL(*mo, setLocation(Vector2D(testing::_, testing::_))).Times(testing::AnyNumber());
+    EXPECT_CALL(*mo, getVelocity()).Times(testing::AnyNumber());
+    EXPECT_CALL(*mo, setLocation(testing::_)).Times(testing::AnyNumber());
 
     EXPECT_ANY_THROW(m.Execute());
 }
