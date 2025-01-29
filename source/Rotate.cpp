@@ -1,5 +1,5 @@
 #include <Rotate.h>
-#include <exception>
+#include <stdexcept>
 
 Rotate::Rotate(std::shared_ptr<IRotatingObject> rotatingObject)
 {
