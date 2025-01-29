@@ -37,3 +37,34 @@ TEST(Move, GetLocationFailException)
 
     EXPECT_ANY_THROW(m.Execute());
 }
+
+TEST(Move, GetVelocityFailException)
+{
+    std::shared_ptr<MovingObjectMock> mo = std::make_shared<MovingObjectMock>();
+    Move m(mo);
+
+    ON_CALL(*mo, getLocation).WillByDefault(testing::Return(Vector2D(12, 5)));
+    ON_CALL(*mo, getVelocity).WillByDefault(testing::Throw(std::runtime_error("getVelocity() failed")));
+
+    EXPECT_CALL(*mo, getLocation()).Times(testing::AnyNumber());
+    EXPECT_CALL(*mo, getVelocity()).Times(testing::AnyNumber());
+    EXPECT_CALL(*mo, setLocation(testing::_)).Times(testing::AnyNumber());
+
+    EXPECT_ANY_THROW(m.Execute());
+}
+
+TEST(Move, SetLocationFailException)
+{
+    std::shared_ptr<MovingObjectMock> mo = std::make_shared<MovingObjectMock>();
+    Move m(mo);
+
+    ON_CALL(*mo, getLocation).WillByDefault(testing::Return(Vector2D(12, 5)));
+    ON_CALL(*mo, getVelocity).WillByDefault(testing::Return(Vector2D(-7, 3)));
+    ON_CALL(*mo, setLocation).WillByDefault(testing::Throw(std::runtime_error("setLocation() failed")));
+
+    EXPECT_CALL(*mo, getLocation()).Times(testing::AnyNumber());
+    EXPECT_CALL(*mo, getVelocity()).Times(testing::AnyNumber());
+    EXPECT_CALL(*mo, setLocation(testing::_)).Times(testing::AnyNumber());
+
+    EXPECT_ANY_THROW(m.Execute());
+}
