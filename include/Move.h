@@ -1,3 +1,6 @@
+#ifndef __MOVE_H_INCLUDED__
+#define __MOVE_H_INCLUDED__
+
 #include "IMovingObject.h"
 #include <memory>
 
@@ -10,3 +13,5 @@ public:
 
     void Execute(void);
 };
+
+#endif

@@ -11,7 +11,7 @@ void Rotate::Execute(void)
 {
     if (m_Object != nullptr)
     {
-        // TODO:
+        m_Object->setAngle( m_Object->getAngle() + m_Object->getRotationSpeed() );
     }
     else
     {

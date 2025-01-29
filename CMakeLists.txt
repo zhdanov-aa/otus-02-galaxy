@@ -17,6 +17,7 @@ set(SOURCE_FILES
     ./source/Move.cpp
     ./source/Rotate.cpp
     ./source/Vector2D.cpp
+    ./source/Angle.cpp
     )
 
 find_package(Threads REQUIRED)

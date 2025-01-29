@@ -1,6 +1,8 @@
+#ifndef __ROTATE_H_INCLUDED__
+#define __ROTATE_H_INCLUDED__
+
 #include <IRotatingObject.h>
 #include <memory>
-
 
 class Rotate
 {
@@ -11,3 +13,5 @@ public:
 
     void Execute(void);
 };
+
+#endif
