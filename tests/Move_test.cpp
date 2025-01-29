@@ -28,7 +28,7 @@ TEST(Move, GetLocationFailException)
     std::shared_ptr<MovingObjectMock> mo = std::make_shared<MovingObjectMock>();
     Move m(mo);
 
-    ON_CALL(*mo, getLocation).WillByDefault(testing::Throw(std::runtime_error("getLocation() failed"))));
+    ON_CALL(*mo, getLocation).WillByDefault(testing::Throw(std::runtime_error("getLocation() failed")));
     ON_CALL(*mo, getVelocity).WillByDefault(testing::Return(Vector2D(-7, 3)));
 
     EXPECT_CALL(*mo, getLocation()).Times(testing::AnyNumber());
