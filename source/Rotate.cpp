@@ -1,7 +1,20 @@
 #include "../include/RotateAction.h"
 #include <exception>
 
-void RotateAction::Execute(void)
+Rotate::Rotate(std::shared_ptr<IRotatingObject> rotatingObject)
 {
-    throw std::runtime_error("RotateAction::execute() is not implemented");
+    m_Object = rotatingObject;
+}
+
+
+void Rotate::Execute(void)
+{
+    if (m_Object != nullptr)
+    {
+        // TODO:
+    }
+    else
+    {
+        throw std::runtime_error("Rotate::m_Object is nullptr");
+    }
 }
