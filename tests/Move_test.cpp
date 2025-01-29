@@ -5,9 +5,6 @@
 class MovingObjectMock: public IMovingObject
 {
 public:
-//    MOCK_METHOD0(getLocation, Vector2D());
-//    MOCK_METHOD0(getVelocity, Vector2D());
-//    MOCK_METHOD1(setLocation, void(Vector2D));
     MOCK_METHOD(Vector2D, getLocation, ());
     MOCK_METHOD(Vector2D, getVelocity, ());
     MOCK_METHOD(void, setLocation, (Vector2D));
@@ -32,7 +29,7 @@ TEST(Move, GetLocationFailException)
 
     ON_CALL(*mo, getLocation).WillByDefault(testing::Return(Vector2D(12,5)));
     ON_CALL(*mo, getVelocity).WillByDefault(testing::Return(Vector2D(-7,3)));
-    ON_CALL(*mo, setLocation);
+    ON_CALL(*mo, setLocation).WillByDefault(testing::Return());
 
     EXPECT_ANY_THROW(m.Execute());
 }
