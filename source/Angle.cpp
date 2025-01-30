@@ -12,7 +12,7 @@ Angle::Angle(int angle)
 
 int operator == (const Angle &a1, const Angle &a2)
 {
-    return ( ((a1.angle + 360) % 360) == ((a2.angle + 360) % 360) );
+    return ( ((a1.m_angle + 360) % 360) == ((a2.m_angle + 360) % 360) );
 }
 
 int operator != (const Angle &a1, const Angle &a2)
