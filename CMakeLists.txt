@@ -12,9 +12,10 @@ include_directories(./include)
 
 set(SOURCE_FILES 
     ./tests/main.cpp 
-    ./tests/Move_test.cpp
     ./tests/Vector2D_test.cpp
+    ./tests/Move_test.cpp
     ./tests/Angle_test.cpp
+    ./tests/Rotate_test.cpp
     ./source/Move.cpp
     ./source/Rotate.cpp
     ./source/Vector2D.cpp
