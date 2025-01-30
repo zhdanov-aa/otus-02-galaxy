@@ -34,25 +34,25 @@ TEST(Rotate, GetAngleFailException)
     Rotate r(ro);
 
     ON_CALL(*ro, getAngle).WillByDefault(Throw(std::runtime_error("getAngle() failed")));
-    ON_CALL(*ro, getRotatingSpeed).WillByDefault(Return(Angle(45)));
+    ON_CALL(*ro, getRotationSpeed).WillByDefault(Return(Angle(45)));
 
     EXPECT_CALL(*ro, getAngle()).Times(AnyNumber());
-    EXPECT_CALL(*ro, getRotatingSpeed()).Times(AnyNumber());
+    EXPECT_CALL(*ro, getRotationSpeed()).Times(AnyNumber());
     EXPECT_CALL(*ro, setAngle(_)).Times(AnyNumber());
 
     EXPECT_ANY_THROW(r.Execute());
 }
 
-TEST(Rotate, GetRotatingSpeedFailException)
+TEST(Rotate, getRotationSpeedFailException)
 {
     std::shared_ptr<RotatingObjectMock> ro = std::make_shared<RotatingObjectMock>();
     Rotate r(ro);
 
     ON_CALL(*ro, getAngle).WillByDefault(Return(Angle(90)));
-    ON_CALL(*ro, getRotatingSpeed).WillByDefault(Throw(std::runtime_error("getRotatingSpeed() failed")));
+    ON_CALL(*ro, getRotationSpeed).WillByDefault(Throw(std::runtime_error("getRotationSpeed() failed")));
 
     EXPECT_CALL(*ro, getAngle()).Times(AnyNumber());
-    EXPECT_CALL(*ro, getRotatingSpeed()).Times(AnyNumber());
+    EXPECT_CALL(*ro, getRotationSpeed()).Times(AnyNumber());
     EXPECT_CALL(*ro, setAngle(_)).Times(AnyNumber());
 
     EXPECT_ANY_THROW(r.Execute());
@@ -64,11 +64,11 @@ TEST(Rotate, SetAngleFailException)
     Rotate r(ro);
 
     ON_CALL(*ro, getAngle).WillByDefault(Return(Angle(90)));
-    ON_CALL(*ro, getRotatingSpeed).WillByDefault(Return(Angle(45)));
+    ON_CALL(*ro, getRotationSpeed).WillByDefault(Return(Angle(45)));
     ON_CALL(*ro, setAngle).WillByDefault(Throw(std::runtime_error("setAngle() failed")));
 
     EXPECT_CALL(*ro, getAngle()).Times(AnyNumber());
-    EXPECT_CALL(*ro, getRotatingSpeed()).Times(AnyNumber());
+    EXPECT_CALL(*ro, getRotationSpeed()).Times(AnyNumber());
     EXPECT_CALL(*ro, setAngle(_)).Times(AnyNumber());
 
     EXPECT_ANY_THROW(r.Execute());
