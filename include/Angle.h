@@ -3,6 +3,8 @@
 
 class Angle
 {
+    /// Значение угла в градусах в диапазоне [-359..359]
+    int m_angle = 0;
 public:
     Angle();
     Angle(int angle);
