@@ -4,22 +4,19 @@
 
 void Runner::Execute()
 {
-    if (m_pCommandQueue != nullptr)
+    if (m_pCommandQueue == nullptr)
+        return;
+
+    ICommandPtr pCmd = nullptr;
+    while (pCmd = m_pCommandQueue->GetHead())
     {
-        while (!m_pCommandQueue->IsEmpty())
+        try
         {
-            ICommandPtr pCmd = m_pCommandQueue.GetHead();
-            if (pCmd != nullptr)
-            {
-                try
-                {
-                    pCmd->Execute();
-                }
-                catch(IException *e)
-                {
-                    ExceptioHandler::Handle(pCmd, IExpertionPtr(e))->Execute();
-                }
-            }
+            pCmd->Execute();
+        }
+        catch(IException *e)
+        {
+            ExceptioHandler::Handle(pCmd, IExpertionPtr(e))->Execute();
         }
     }
 }
