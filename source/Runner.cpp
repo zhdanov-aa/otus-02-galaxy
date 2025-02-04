@@ -8,7 +8,7 @@ void Runner::Execute()
         return;
 
     ICommandPtr pCmd = nullptr;
-    while (pCmd = m_pCommandQueue->GetHead())
+    while (pCmd = m_pCommandQueue->GetCommand())
     {
         try
         {
@@ -16,7 +16,7 @@ void Runner::Execute()
         }
         catch(IException *e)
         {
-            ExceptioHandler::Handle(pCmd, IExpertionPtr(e))->Execute();
+            ExceptionHandler::Handle(pCmd, IExceptionPtr(e))->Execute();
         }
     }
 }
