@@ -1,5 +1,6 @@
 #include <Runner.h>
 #include <ICommand.h>
+#include <IException.h>
 
 void Runner::Execute()
 {
