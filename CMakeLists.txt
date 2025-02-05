@@ -9,6 +9,7 @@ add_definitions(-DGTEST_LANGUAGE_CXX11)
 
 include_directories(/usr/include)
 include_directories(./include)
+include_directories(./include/commands)
 
 set(SOURCE_FILES 
     ./tests/main.cpp 
@@ -16,8 +17,8 @@ set(SOURCE_FILES
     ./tests/Move_test.cpp
     ./tests/Angle_test.cpp
     ./tests/Rotate_test.cpp
-    ./source/Move.cpp
-    ./source/Rotate.cpp
+    ./source/commands/Move.cpp
+    ./source/commands/Rotate.cpp
     ./source/Vector2D.cpp
     ./source/Angle.cpp
     ./source/Runner.cpp
