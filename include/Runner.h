@@ -1,7 +1,7 @@
 #ifndef __RUNNER_H_INCLUDED__
 #define __RUNNER_H_INCLUDED__
 
-#inclide <ICommandQueue.h>
+#include <ICommandQueue.h>
 
 class Runner
 {
