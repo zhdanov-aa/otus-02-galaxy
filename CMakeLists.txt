@@ -20,6 +20,8 @@ set(SOURCE_FILES
     ./source/Rotate.cpp
     ./source/Vector2D.cpp
     ./source/Angle.cpp
+    ./source/Runner.cpp
+    ./source/ExceptionHandler.cpp
     )
 
 find_package(Threads REQUIRED)
