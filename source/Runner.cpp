@@ -16,7 +16,11 @@ void Runner::Execute()
         }
         catch(IException *e)
         {
-            ExceptionHandler::Handle(pCmd, IExceptionPtr(e))->Execute();
+            ICommandPtr handler = ExceptionHandler::Handle(pCmd, IExceptionPtr(e));
+            if (handler != nullptr) 
+            {
+                handler->Execute();
+            }
         }
     }
 }
