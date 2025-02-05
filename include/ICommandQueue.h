@@ -10,7 +10,7 @@ public:
     virtual ~ICommandQueue() = default;
 
     /*!
-        \return Первую команду из очереди. Если очередь пуста, то возвращает nullptr.
+        \return Первая команда из очереди. Если очередь пуста, то возвращает nullptr.
     */
     virtual ICommandPtr GetCommand() = 0;
 };
