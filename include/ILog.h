@@ -11,7 +11,7 @@ class ILog
 public:
     virtual ~ILog() = default;
 
-    virtual Write(string message) = 0;
+    virtual void Write(string message) = 0;
 };
 
 typedef shared_ptr<ILog> ILogPtr;
