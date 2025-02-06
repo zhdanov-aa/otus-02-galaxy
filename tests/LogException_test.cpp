@@ -2,15 +2,10 @@
 #include <gmock/gmock.h>
 #include <LogException.h>
 #include <ILog_mock.h>
+#include <IException_mock.h>
 
 using namespace std;
 using ::testing::Return;
-
-class IExceptionMock: public IException
-{
-public:
-    MOCK_METHOD(string, WhatHappened, ());
-};
 
 TEST(LogException, CheckExecute)
 {
