@@ -19,6 +19,7 @@ set(SOURCE_FILES
     ./tests/Angle_test.cpp
     ./tests/Rotate_test.cpp
     ./tests/LogException_test.cpp
+    ./tests/QueueCommand_test.cpp
     ./source/commands/Move.cpp
     ./source/commands/Rotate.cpp
     ./source/commands/LogException.cpp
