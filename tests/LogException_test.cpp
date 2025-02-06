@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-#include <WriteExceptionToLog.h>
+#include <LogException.h>
 
 using namespace std;
 using ::testing::Return;
@@ -17,14 +17,14 @@ public:
     MOCK_METHOD(string, WhatHappened, ());
 };
 
-TEST(WriteExceptionToLog, CheckExecute)
+TEST(LogException, CheckExecute)
 {
     shared_ptr<ILogMock> pLog = make_shared<ILogMock>();
     shared_ptr<IExceptionMock> pException = make_shared<IExceptionMock>();
-    WriteExceptionToLog we(pLog, pException);
+    LogException le(pLog, pException);
 
     EXPECT_CALL(*pException, WhatHappened()).WillOnce(Return("test"));
     EXPECT_CALL(*pLog, Write("test"));
 
-    we.Execute();
+    le.Execute();
 }
