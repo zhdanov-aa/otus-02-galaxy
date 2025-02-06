@@ -13,7 +13,7 @@ TEST(QueueCommand, CheckExecute)
     shared_ptr<ICommandMock> pCommand = make_shared<ICommandMock>();
     QueueCommand cmd(pBuilder, pCommand);
 
-    EXPECT_CALL(*pBuilder, AddCommand(pCommand));
+    EXPECT_CALL(*pBuilder, AddCommand(std::static_pointer_cast<ICommand>(pCommand)));
 
-    le.Execute();
+    cmd.Execute();
 }
