@@ -21,6 +21,7 @@ set(SOURCE_FILES
     ./source/commands/Move.cpp
     ./source/commands/Rotate.cpp
     ./source/commands/LogException.cpp
+    ./source/commands/QueueCommand.cpp
     ./source/Vector2D.cpp
     ./source/Angle.cpp
     ./source/Runner.cpp
