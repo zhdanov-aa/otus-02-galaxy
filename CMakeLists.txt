@@ -10,6 +10,7 @@ add_definitions(-DGTEST_LANGUAGE_CXX11)
 include_directories(/usr/include)
 include_directories(./include)
 include_directories(./include/commands)
+include_directories(./tests/include)
 
 set(SOURCE_FILES 
     ./tests/main.cpp 
