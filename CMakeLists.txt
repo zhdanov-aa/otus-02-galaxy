@@ -19,6 +19,7 @@ set(SOURCE_FILES
     ./tests/Rotate_test.cpp
     ./source/commands/Move.cpp
     ./source/commands/Rotate.cpp
+    ./source/commands/WriteExceptionToLog.cpp
     ./source/Vector2D.cpp
     ./source/Angle.cpp
     ./source/Runner.cpp
