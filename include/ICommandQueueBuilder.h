@@ -12,6 +12,6 @@ public:
     virtual void AddCommand(ICommandPtr pCommand) = 0;
 };
 
-typedef shared_ptr<ICommandQueueBuilder> ICommandQueueBuilderPtr;
+typedef std::shared_ptr<ICommandQueueBuilder> ICommandQueueBuilderPtr;
 
 #endif
