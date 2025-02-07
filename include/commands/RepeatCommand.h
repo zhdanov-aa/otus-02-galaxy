@@ -6,6 +6,8 @@
 
 class RepeatCommand: public ICommand
 {
+    ICommandPtr m_pRepeatedCommand;
+
 public:
     RepeatCommand(ICommandPtr pCommand);
 
