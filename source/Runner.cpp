@@ -2,6 +2,8 @@
 
 Runner::Runner(ICommandQueuePtr pCommandQueue, IExceptionHandlerPtr pExceptionHandler)
     : m_pCommandQueue(pCommandQueue), m_pExceptionHandler(pExceptionHandler)
+{
+}
 
 void Runner::Execute()
 {
