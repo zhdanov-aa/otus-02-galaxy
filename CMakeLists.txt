@@ -10,6 +10,7 @@ add_definitions(-DGTEST_LANGUAGE_CXX11)
 include_directories(/usr/include)
 include_directories(./include)
 include_directories(./include/commands)
+include_directories(./include/exceptions)
 include_directories(./tests/include)
 
 set(SOURCE_FILES 
@@ -24,6 +25,8 @@ set(SOURCE_FILES
     ./source/commands/Rotate.cpp
     ./source/commands/LogException.cpp
     ./source/commands/QueueCommand.cpp
+    ./source/commands/RepeatCommand.cpp
+    ./source/exceptions/RepeatFailException.cpp
     ./source/Vector2D.cpp
     ./source/Angle.cpp
     ./source/Runner.cpp
