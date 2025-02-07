@@ -27,8 +27,7 @@ set(SOURCE_FILES
     ./source/Vector2D.cpp
     ./source/Angle.cpp
     ./source/Runner.cpp
-    ./source/ExceptionHandler.cpp
-    )
+)
 
 find_package(Threads REQUIRED)
 find_package(GTest REQUIRED)

@@ -2,13 +2,15 @@
 #define __RUNNER_H_INCLUDED__
 
 #include <ICommandQueue.h>
+#include <IExceptionHandler.h>
 
 class Runner
 {
-    ICommandQueuePtr m_pCommandQueue = nullptr;
+    ICommandQueuePtr m_pCommandQueue;
+    IExceptionHandlerPtr m_pExceptionHandler;
 
 public:
-    Runner(ICommandQueuePtr CommandQueue);
+    Runner(ICommandQueuePtr pCommandQueue, IExceptionHandler pExceptionHandler);
 
     void Execute();
 };
