@@ -16,7 +16,7 @@ IExceptionPtr RepeatFailException::getException()
     return m_pException;
 }
 
-std::string WhatHappened()
+std::string RepeatFailException::WhatHappened()
 {
     return std::string("Repeat command failed with exception: ") + m_pException->WhatHappened();
 }
