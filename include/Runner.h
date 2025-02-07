@@ -10,7 +10,7 @@ class Runner
     IExceptionHandlerPtr m_pExceptionHandler;
 
 public:
-    Runner(ICommandQueuePtr pCommandQueue, IExceptionHandler pExceptionHandler);
+    Runner(ICommandQueuePtr pCommandQueue, IExceptionHandlerPtr pExceptionHandler);
 
     void Execute();
 };

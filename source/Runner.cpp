@@ -1,6 +1,6 @@
 #include <Runner.h>
 
-Runner::Runner(ICommandQueuePtr pCommandQueue, IExceptionHandler pExceptionHandler)
+Runner::Runner(ICommandQueuePtr pCommandQueue, IExceptionHandlerPtr pExceptionHandler)
     : m_pCommandQueue(pCommandQueue), m_pExceptionHandler(pExceptionHandler)
 
 void Runner::Execute()
