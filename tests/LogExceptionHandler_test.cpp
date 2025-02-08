@@ -14,7 +14,7 @@ TEST(LogExceptionHandler, CheckExecute)
 {
     shared_ptr<ICommandQueueBuilderMock> pBuilder = make_shared<ICommandQueueBuilderMock>();
     shared_ptr<IExceptionMock> pException = make_shared<IExceptionMock>();
-    shared_ptr<ILogMock> pMock = make_shared<ILogMock>();
+    shared_ptr<ILogMock> pLog = make_shared<ILogMock>();
     LogExceptionHandler cmd(pLog, pException, pBuilder);
 
     EXPECT_CALL(*pBuilder, AddCommand(_));
