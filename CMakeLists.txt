@@ -22,11 +22,13 @@ set(SOURCE_FILES
     ./tests/LogException_test.cpp
     ./tests/LogExceptionHandler_test.cpp
     ./tests/Repeat_test.cpp
+    ./tests/RepeatHandler_test.cpp
     ./source/commands/Move.cpp
     ./source/commands/Rotate.cpp
     ./source/commands/LogException.cpp
     ./source/commands/LogExceptionHandler.cpp
     ./source/commands/Repeat.cpp
+    ./source/commands/RepeatHandler.cpp
     ./source/exceptions/FailedRepeat.cpp
     ./source/Vector2D.cpp
     ./source/Angle.cpp
