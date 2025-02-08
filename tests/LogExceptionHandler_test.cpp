@@ -10,7 +10,7 @@ using namespace std;
 using ::testing::Return;
 using ::testing::_;
 
-TEST(LogExceptionHandler, CheckExecute)
+TEST(LogExceptionHandler, Check_add_LogException_to_ICommandQueueBuilder)
 {
     shared_ptr<ICommandQueueBuilderMock> pBuilder = make_shared<ICommandQueueBuilderMock>();
     shared_ptr<IExceptionMock> pException = make_shared<IExceptionMock>();
