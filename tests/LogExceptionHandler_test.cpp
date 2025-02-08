@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include <LogExceptionHandler.h>
+#include <LogException.h>
 #include <IException_mock.h>
 #include <ICommandQueueBuilder_mock.h>
 #include <ILog_mock.h>
@@ -17,7 +18,7 @@ TEST(LogExceptionHandler, CheckExecute)
     shared_ptr<ILogMock> pLog = make_shared<ILogMock>();
     LogExceptionHandler cmd(pLog, pException, pBuilder);
 
-    EXPECT_CALL(*pBuilder, AddCommand(_));
+    EXPECT_CALL(*pBuilder, AddCommand(A<LogExceptionPtr>()));
 
     EXPECT_NO_THROW(cmd.Execute());
 }

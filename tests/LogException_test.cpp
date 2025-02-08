@@ -7,7 +7,7 @@
 using namespace std;
 using ::testing::Return;
 
-TEST(LogException, CheckExecute)
+TEST(LogException, CheckWriteToLog)
 {
     shared_ptr<ILogMock> pLog = make_shared<ILogMock>();
     shared_ptr<IExceptionMock> pException = make_shared<IExceptionMock>();

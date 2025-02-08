@@ -4,6 +4,7 @@
 #include <ICommand.h>
 #include <IException.h>
 #include <ILog.h>
+#include <memory>
 
 class LogException: public ICommand
 {
@@ -15,5 +16,7 @@ public:
 
     void Execute() override;
 };
+
+typedef std::shared_ptr<LogException> LogExceptionPtr;
 
 #endif
