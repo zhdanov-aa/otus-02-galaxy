@@ -20,11 +20,11 @@ set(SOURCE_FILES
     ./tests/Angle_test.cpp
     ./tests/Rotate_test.cpp
     ./tests/LogException_test.cpp
-    ./tests/QueueCommand_test.cpp
+    ./tests/LogExceptionHandler_test.cpp
     ./source/commands/Move.cpp
     ./source/commands/Rotate.cpp
     ./source/commands/LogException.cpp
-    ./source/commands/QueueCommand.cpp
+    ./source/commands/LogExceptionHandler.cpp
     ./source/commands/RepeatCommand.cpp
     ./source/exceptions/RepeatFailException.cpp
     ./source/Vector2D.cpp
