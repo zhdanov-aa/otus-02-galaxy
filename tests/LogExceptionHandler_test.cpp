@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include <LogExceptionHandler.h>
-#include <ICommand_mock.h>
+#include <IException_mock.h>
 #include <ICommandQueueBuilder_mock.h>
 #include <ILog_mock.h>
 
