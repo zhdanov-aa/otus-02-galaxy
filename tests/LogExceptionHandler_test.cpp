@@ -9,7 +9,6 @@
 using namespace std;
 using ::testing::Return;
 using ::testing::_;
-using ::testing::A;
 
 TEST(LogExceptionHandler, CheckExecute)
 {
@@ -18,7 +17,7 @@ TEST(LogExceptionHandler, CheckExecute)
     shared_ptr<ILogMock> pLog = make_shared<ILogMock>();
     LogExceptionHandler cmd(pLog, pException, pBuilder);
 
-    EXPECT_CALL(*pBuilder, AddCommand(A<LogExceptionPtr>()));
+    EXPECT_CALL(*pBuilder, AddCommand(_));
 
     EXPECT_NO_THROW(cmd.Execute());
 }
