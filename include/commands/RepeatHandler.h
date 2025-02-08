@@ -2,7 +2,7 @@
 #define __REPEATHANDLER_H_INCLUDED__
 
 #include <ICommand.h>
-#include <ICommandBuilder.h>
+#include <ICommandQueueBuilder.h>
 #include <memory>
 
 class RepeatHandler: public ICommand
