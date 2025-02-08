@@ -4,7 +4,7 @@
 #include <ICommand.h>
 #include <ICommandQueueBuilder.h>
 #include <IException.h>
-#include <ILog>
+#include <ILog.h>
 #include <memory>
 
 class LogExceptionHandler: public ICommand
