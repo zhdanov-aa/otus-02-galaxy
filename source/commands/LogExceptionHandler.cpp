@@ -1,4 +1,4 @@
-#include <LogExceptioHandler.h>
+#include <LogExceptionHandler.h>
 
 LogExceptionHandler::LogExceptionHandler(ILogPtr log, IExceptionPtr exception, ICommandQueueBuilderPtr builder)
     : m_pLog(log), m_pException(exception), m_pBuilder(builder)
