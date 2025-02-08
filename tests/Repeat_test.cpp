@@ -8,7 +8,7 @@ using namespace std;
 using ::testing::Return;
 using ::testing::Throw;
 
-TEST(Repeat, Check_success_repeated_command_execute)
+TEST(Repeat, Check_success_repeate)
 {
     shared_ptr<ICommandMock> pCommand = make_shared<ICommandMock>();
     Repeat cmd(pCommand);
@@ -18,7 +18,7 @@ TEST(Repeat, Check_success_repeated_command_execute)
     EXPECT_NO_THROW(cmd.Execute());
 }
 
-TEST(Repeat, Check_fail_repeated_command_excute)
+TEST(Repeat, Check_fail_repeate)
 {
     shared_ptr<ICommandMock> pCommand = make_shared<ICommandMock>();
     Repeat cmd(pCommand);

@@ -27,7 +27,7 @@ set(SOURCE_FILES
     ./source/commands/LogException.cpp
     ./source/commands/LogExceptionHandler.cpp
     ./source/commands/Repeat.cpp
-    ./source/exceptions/RepeatFailException.cpp
+    ./source/exceptions/FailedRepeat.cpp
     ./source/Vector2D.cpp
     ./source/Angle.cpp
     ./source/Runner.cpp

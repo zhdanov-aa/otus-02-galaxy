@@ -1,5 +1,5 @@
 #include <Repeat.h>
-#include <RepeatFailException.h>
+#include <FailedRepeat.h>
 
 Repeat::Repeat(ICommandPtr pCommand)
     : m_pRepeatedCommand(pCommand)
@@ -15,6 +15,6 @@ void Repeat::Execute()
     }
     catch(IException *pException)
     {
-        throw new RepeatFailException(m_pRepeatedCommand, IExceptionPtr(pException));
+        throw new FailedRepeat(m_pRepeatedCommand, IExceptionPtr(pException));
     }
 }
