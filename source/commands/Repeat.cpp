@@ -1,13 +1,13 @@
-#include <RepeatCommand.h>
+#include <Repeat.h>
 #include <RepeatFailException.h>
 
-RepeatCommand::RepeatCommand(ICommandPtr pCommand)
+Repeat::Repeat(ICommandPtr pCommand)
     : m_pRepeatedCommand(pCommand)
 {
 
 }
 
-void RepeatCommand::Execute()
+void Repeat::Execute()
 {
     try
     {
