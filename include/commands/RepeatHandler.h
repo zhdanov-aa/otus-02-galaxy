@@ -1,4 +1,4 @@
-#include __REPEATHANDLER_H_INCLUDED__
+#ifndef __REPEATHANDLER_H_INCLUDED__
 #define __REPEATHANDLER_H_INCLUDED__
 
 #include <ICommand.h>
