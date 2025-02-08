@@ -2,6 +2,7 @@
 #include <gmock/gmock.h>
 #include <Repeat.h>
 #include <stdexcept>
+#include <ICommand_mock.h>
 
 using namespace std;
 using ::testing::Return;
