@@ -12,7 +12,7 @@
 using namespace std;
 using ::testing::Return;
 using ::testing::Throw;
-using ::testing::SaveArg
+using ::testing::SaveArg;
 using ::testing::_;
 
 TEST(Runner, Check_throw_repeat_log)
