@@ -5,7 +5,7 @@
 #include <gmock/gmock.h>
 #include <IExceptionHandler.h>
 
-class IExceptionHandlerMock: pubic IExceptionHandler
+class IExceptionHandlerMock: public IExceptionHandler
 {
 public:
     MOCK_METHOD(ICommandPtr, GetCommand, (ICommandPtr, IExceptionPtr));
