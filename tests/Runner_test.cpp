@@ -36,7 +36,7 @@ TEST(Runner, Check_throw_repeat_log)
     
     EXPECT_CALL(*pCommandQueue, GetCommand())
         .WillOnce(Return(pCommand))
-        .WillOnce(Return(pLogCmd))
+        .WillOnce(ReturnRef(pLogCmd))
         .WillOnce(Return(nullptr));
     
     EXPECT_CALL(*pExceptionHandler, GetCommand(_,_))
