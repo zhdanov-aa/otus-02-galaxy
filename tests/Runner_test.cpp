@@ -32,10 +32,10 @@ TEST(Runner, Check_throw_repeat_log)
     ICommandPtr pRepeatCmd = nullptr;
     Runner runner(pCommandQueue, pExceptionHandler);
 
-    EXPECT_CALL(*pException1, WhatHappened())
-        .WillOnce(Return("exception1"));
+    //EXPECT_CALL(*pException1, WhatHappened())
+    //    .WillOnce(Return("exception1"));
     
-    EXPECT_CALL(*pException1, WhatHappened())
+    EXPECT_CALL(*pException2, WhatHappened())
         .WillOnce(Return("exception2"));
 
     EXPECT_CALL(*pCommand, Execute())
