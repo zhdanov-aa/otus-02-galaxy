@@ -38,7 +38,7 @@ TEST(Runner, Check_throw_repeat_log)
         .WillOnce(Return(nullptr));
     
     EXPECT_CALL(*pExceptionHandler, GetCommand(_,_))
-        .WillOnce(Return(make_shared<LogExceptionHandler>(pLog, std::static_cast<IException>(pException), pBuilder)));
+        .WillOnce(Return(make_shared<LogExceptionHandler>(pLog, std::static_pointer_cast<IException>(pException), pBuilder)));
 
     EXPECT_CALL(*pBuilder, AddCommand(_)).WillOnce(SaveArg<0>(&pLogCmd));
 
