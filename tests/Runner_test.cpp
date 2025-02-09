@@ -11,6 +11,7 @@
 
 using namespace std;
 using ::testing::Return;
+using ::testing::ReturnRef;
 using ::testing::Throw;
 using ::testing::SaveArg;
 using ::testing::_;
