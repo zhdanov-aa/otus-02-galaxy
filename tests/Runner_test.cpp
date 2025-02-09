@@ -40,17 +40,17 @@ TEST(Runner, Check_throw_repeat_log)
     
     EXPECT_CALL(*pCommandQueue, GetCommand())
         .WillOnce(Return(pCommand))
-        .WillOnce( [&pLogCmd](){ return pLogCmd; })
         .WillOnce( [&pRepeatCmd](){ return pRepeatCmd; })
+        .WillOnce( [&pLogCmd](){ return pLogCmd; })
         .WillOnce(Return(nullptr));
     
     EXPECT_CALL(*pExceptionHandler, GetCommand(_,_))
-        .WillOnce(ReturnLogExceptionHandler(pLog, pBuilder))
-        .WillOnce(ReturnRepeatHandler(pBuilder));
+        .WillOnce(ReturnRepeatHandler(pBuilder))
+        .WillOnce(ReturnLogExceptionHandler(pLog, pBuilder));
 
     EXPECT_CALL(*pBuilder, AddCommand(_))
-        .WillOnce(SaveArg<0>(&pLogCmd))
-        .WillOnce(SaveArg<0>(&pRepeatCmd));
+        .WillOnce(SaveArg<0>(&pRepeatCmd))
+        .WillOnce(SaveArg<0>(&pLogCmd));
 
     EXPECT_CALL(*pLog, Write(_));
 
