@@ -26,17 +26,21 @@ TEST(Runner, Check_throw_repeat_log)
     shared_ptr<ICommandQueueBuilderMock> pBuilder = make_shared<ICommandQueueBuilderMock>();
     shared_ptr<ILogMock> pLog = make_shared<ILogMock>();
     shared_ptr<ICommandMock> pCommand = make_shared<ICommandMock>();
-    IExceptionMock *pException = new IExceptionMock();
+    IExceptionMock *pException1 = new IExceptionMock();
+    IExceptionMock *pException2 = new IExceptionMock();
     ICommandPtr pLogCmd = nullptr;
     ICommandPtr pRepeatCmd = nullptr;
     Runner runner(pCommandQueue, pExceptionHandler);
 
-    EXPECT_CALL(*pException, WhatHappened())
-        .WillOnce(Return("exception"));
+    EXPECT_CALL(*pException1, WhatHappened())
+        .WillOnce(Return("exception1"));
     
+    EXPECT_CALL(*pException1, WhatHappened())
+        .WillOnce(Return("exception2"));
+
     EXPECT_CALL(*pCommand, Execute())
-        .WillOnce(Throw(pException))
-        .WillOnce(Throw(pException));
+        .WillOnce(Throw(pException1))
+        .WillOnce(Throw(pException2));
     
     EXPECT_CALL(*pCommandQueue, GetCommand())
         .WillOnce(Return(pCommand))
