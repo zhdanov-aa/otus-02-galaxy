@@ -30,6 +30,8 @@ set(SOURCE_FILES
     ./source/commands/LogExceptionHandler.cpp
     ./source/commands/Repeat.cpp
     ./source/commands/RepeatHandler.cpp
+    ./source/commands/RepeatTwice.cpp
+    ./source/commands/RepeatTwiceHandler.cpp
     ./source/exceptions/FailedRepeat.cpp
     ./source/Vector2D.cpp
     ./source/Angle.cpp
