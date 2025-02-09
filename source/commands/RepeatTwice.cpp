@@ -10,7 +10,7 @@ RepeatTwice::RepeatTwice(ICommandPtr pCommand)
 void RepeatTwice::Execute()
 {
     IExceptionPtr pExecuteException = nullptr;
-    int repeatCount = 2;
+    int repeatCount = 0;
 
     do 
     {
@@ -23,8 +23,9 @@ void RepeatTwice::Execute()
         {
             pExecuteException = IExceptionPtr(pException);
         }
+        repeatCount++;
     }
-    while ((pExecuteException != nullptr) && (repeatCount--) );
+    while ((pExecuteException != nullptr) && (repeatCount < 2) );
 
     if (pExecuteException != nullptr)
     {
