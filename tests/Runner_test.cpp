@@ -17,7 +17,7 @@ using ::testing::SaveArg;
 using ::testing::_;
 
 ACTION_P2(ReturnLogExceptionHandler, p1, p2) { return make_shared<LogExceptionHandler>(p1, arg1, p2); }
-ACTION_P1(ReturnRepeatHandler, builder) { return make_shared<RepeatHandler>(arg0, builder); }
+ACTION_P(ReturnRepeatHandler, builder) { return make_shared<RepeatHandler>(arg0, builder); }
 
 TEST(Runner, Check_throw_repeat_log)
 {
