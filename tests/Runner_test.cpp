@@ -15,6 +15,8 @@ using ::testing::Throw;
 using ::testing::SaveArg;
 using ::testing::_;
 
+ACTION_P2(ReturnLogExceptionHandler, p1, p2) { return make_shared<LogExceptionHandler>(p1, arg1, p2) }
+
 TEST(Runner, Check_throw_repeat_log)
 {
     shared_ptr<ICommandQueueMock> pCommandQueue = make_shared<ICommandQueueMock>();
@@ -38,7 +40,7 @@ TEST(Runner, Check_throw_repeat_log)
         .WillOnce(Return(nullptr));
     
     EXPECT_CALL(*pExceptionHandler, GetCommand(_,_))
-        .WillOnce(Return(make_shared<LogExceptionHandler>(pLog, std::static_pointer_cast<IException>(pException), pBuilder)));
+        .WillOnce(ReturnLogExceptionHandler(pLog, pBuilder));
 
     EXPECT_CALL(*pBuilder, AddCommand(_)).WillOnce(SaveArg<0>(&pLogCmd));
 
