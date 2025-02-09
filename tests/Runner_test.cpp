@@ -12,10 +12,11 @@ TEST(Runner, Check_throw_repeat_log)
 {
     shared_ptr<ICommandQueueMock> pCommandQueue = make_shared<ICommandQueueMock>();
     shared_ptr<IExceptionHandlerMock> pExceptionHandler = make_shared<IExceptionHandlerMock>();
-    //shared_ptr<ICommandMock> pCommand = make_shared<ICommandMock>();
+    shared_ptr<ICommandMock> pCommand = make_shared<ICommandMock>();
     Runner runner(pCommandQueue, pExceptionHandler);
 
-    EXPECT_CALL(*pCommandQueue, GetCommand()).WillOnce(Return(nullptr));
+    EXPECT_CALL(*pCommand, Execute()).Times(1);
+    EXPECT_CALL(*pCommandQueue, GetCommand()).WillOnce(Return(pCommand)).WillOnce(Return(nullptr));
 
     runner.Execute();
 }
