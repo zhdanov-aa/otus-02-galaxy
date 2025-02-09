@@ -7,7 +7,7 @@ Rotate::Rotate(std::shared_ptr<IRotatingObject> rotatingObject)
 }
 
 
-void Rotate::Execute(void)
+void Rotate::Execute()
 {
     if (m_Object != nullptr)
     {

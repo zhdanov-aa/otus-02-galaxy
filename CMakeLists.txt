@@ -9,6 +9,9 @@ add_definitions(-DGTEST_LANGUAGE_CXX11)
 
 include_directories(/usr/include)
 include_directories(./include)
+include_directories(./include/commands)
+include_directories(./include/exceptions)
+include_directories(./tests/include)
 
 set(SOURCE_FILES 
     ./tests/main.cpp 
@@ -16,11 +19,24 @@ set(SOURCE_FILES
     ./tests/Move_test.cpp
     ./tests/Angle_test.cpp
     ./tests/Rotate_test.cpp
-    ./source/Move.cpp
-    ./source/Rotate.cpp
+    ./tests/LogException_test.cpp
+    ./tests/LogExceptionHandler_test.cpp
+    ./tests/Repeat_test.cpp
+    ./tests/RepeatHandler_test.cpp
+    ./tests/Runner_test.cpp
+    ./source/commands/Move.cpp
+    ./source/commands/Rotate.cpp
+    ./source/commands/LogException.cpp
+    ./source/commands/LogExceptionHandler.cpp
+    ./source/commands/Repeat.cpp
+    ./source/commands/RepeatHandler.cpp
+    ./source/commands/RepeatTwice.cpp
+    ./source/commands/RepeatTwiceHandler.cpp
+    ./source/exceptions/FailedRepeat.cpp
     ./source/Vector2D.cpp
     ./source/Angle.cpp
-    )
+    ./source/Runner.cpp
+)
 
 find_package(Threads REQUIRED)
 find_package(GTest REQUIRED)

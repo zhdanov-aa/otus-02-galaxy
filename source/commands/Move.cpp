@@ -7,7 +7,7 @@ Move::Move(std::shared_ptr<IMovingObject> moveObject)
 }
 
 
-void Move::Execute(void)
+void Move::Execute()
 {
     if (m_Object != nullptr)
     {
