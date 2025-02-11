@@ -11,9 +11,13 @@ include_directories(/usr/include)
 include_directories(./include)
 include_directories(./include/commands)
 include_directories(./include/exceptions)
+include_directories(./include/primitives)
 include_directories(./tests/include)
 
 set(SOURCE_FILES 
+    ./source/primitives/Vector2D.cpp
+    ./source/primitives/Angle.cpp
+
     ./tests/main.cpp 
     ./tests/Vector2D_test.cpp
     ./tests/Move_test.cpp
@@ -33,8 +37,6 @@ set(SOURCE_FILES
     ./source/commands/RepeatTwice.cpp
     ./source/commands/RepeatTwiceHandler.cpp
     ./source/exceptions/FailedRepeat.cpp
-    ./source/Vector2D.cpp
-    ./source/Angle.cpp
     ./source/Runner.cpp
 )
 
