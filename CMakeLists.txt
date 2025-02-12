@@ -28,6 +28,8 @@ set(SOURCE_FILES
     ./tests/Repeat_test.cpp
     ./tests/RepeatHandler_test.cpp
     ./tests/Runner_test.cpp
+    ./tests/CheckFuel_test.cpp
+
     ./source/commands/Move.cpp
     ./source/commands/Rotate.cpp
     ./source/commands/LogException.cpp
