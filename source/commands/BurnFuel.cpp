@@ -1,11 +1,15 @@
 #include <BurnFuel.h>
 
-BurnFuel::BurnFuel(IFuelObjectPtr)
+BurnFuel::BurnFuel(IFuelObjectPtr fuelObject) 
+    :m_pFuelObject(fuelObject)
 {
-    // TODO: Реализовать BurnFuel::BurnFuel()
 }
 
 void BurnFuel::Execute()
 {
-    // TODO: #3 Реализовать BurnFuel::Execute()
+    if (m_pFuelObject == nullptr)
+        throw new InvalidArgument("BurnFuel::m_pFuelObject is nullptr");
+
+    m_pFuelObject->setLevel(
+        m_pFuelObject->getLevel() - m_pFuelObject->getConsumption());
 }

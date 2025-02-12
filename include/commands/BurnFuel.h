@@ -3,13 +3,18 @@
 
 #include <ICommand.h>
 #include <IFuelObject.h>
+#include <memory>
 
 class BurnFuel: ICommand
 {
+    IFuelObjectPtr m_pFuelObject;
+
 public:
-    BurnFuel(IFuelObjectPtr);
+    BurnFuel(IFuelObjectPtr fuelObject);
 
     void Execute() override;
 };
+
+typedef std::shared_ptr<BurnFuel> BurnFuelPtr;
 
 #endif
