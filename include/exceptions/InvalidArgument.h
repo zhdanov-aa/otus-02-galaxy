@@ -9,7 +9,7 @@ class InvalidArgument: public IException
 {
     std::string m_sMessage;
 
-publiс:
+public:
     InvalidArgument(std::string message);
 
     std::string WhatHappened() override;
