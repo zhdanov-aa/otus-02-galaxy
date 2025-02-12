@@ -7,6 +7,7 @@
 
 using namespace std;
 using ::testing::Throw;
+using ::testing::Return;
 
 TEST(CheckFuel, InvalidArgument)
 {
@@ -23,10 +24,17 @@ TEST(CheckFuel, InvalidArgument)
     }
 }
 
-// TEST(CheckFuel, EnoughFuel)
-// {
-    
-// }
+TEST(CheckFuel, EnoughFuel)
+{
+    shared_ptr<IFuelObjectMock> obj = make_shared<IFuelObjectMock>();
+    CheckFuel cmd(obj);
+
+    EXPECT_CALL(*obj, getFuelLevel()).WillOnce(Return(FuelLevel(100)));
+    EXPECT_CALL(*obj, getConsumption()).WillOnce(Return(FuelLevel(40)));
+    EXPECT_CALL(*obj, setFuelLevel(FuelLevel(60)));
+
+    EXPECT_NO_THROW(cmd.Execute());
+}
 
 // TEST(CheckFuel, NotEnoughFuel)
 // {
