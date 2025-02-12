@@ -1,5 +1,5 @@
-#ifndef __IFUELOBJECT_H_INCLUDED__
-#define __IFUELOBJECT_H_INCLUDED__
+#ifndef __IFUELOBJECTMOCK_H_INCLUDED__
+#define __IFUELOBJECTMOCK_H_INCLUDED__
 
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
