@@ -31,7 +31,6 @@ TEST(CheckFuel, EnoughFuel)
 
     EXPECT_CALL(*obj, getLevel()).WillOnce(Return(FuelLevel(100)));
     EXPECT_CALL(*obj, getConsumption()).WillOnce(Return(FuelLevel(40)));
-    EXPECT_CALL(*obj, setLevel(FuelLevel(60)));
 
     EXPECT_NO_THROW(cmd.Execute());
 }
@@ -41,9 +40,8 @@ TEST(CheckFuel, NotEnoughFuel)
     shared_ptr<IFuelObjectMock> obj = make_shared<IFuelObjectMock>();
     CheckFuel cmd(obj);
 
-    EXPECT_CALL(*obj, getLevel()).WillOnce(Return(FuelLevel(100)));
+    EXPECT_CALL(*obj, getLevel()).WillOnce(Return(FuelLevel(30)));
     EXPECT_CALL(*obj, getConsumption()).WillOnce(Return(FuelLevel(40)));
-    EXPECT_CALL(*obj, setLevel(FuelLevel(60)));    
 
     try
     {
