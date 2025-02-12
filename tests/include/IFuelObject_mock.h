@@ -5,7 +5,7 @@
 #include <gmock/gmock.h>
 #include <IFuelObject.h>
 
-class IFuelObjectMock: IFuelObject
+class IFuelObjectMock: public IFuelObject
 {
 public:
     MOCK_METHOD(FuelLevel, getLevel, ());
