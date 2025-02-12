@@ -1,4 +1,5 @@
 #include <BurnFuel.h>
+#include <InvalidArgument.h>
 
 BurnFuel::BurnFuel(IFuelObjectPtr fuelObject) 
     :m_pFuelObject(fuelObject)
