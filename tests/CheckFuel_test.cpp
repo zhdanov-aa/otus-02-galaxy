@@ -61,8 +61,8 @@ TEST(CheckFuel, TranslateExceptions)
     shared_ptr<IFuelObjectMock> obj = make_shared<IFuelObjectMock>();
     CheckFuel cmd(obj);
 
-    EXPECT_CALL(*obj, getLevel()).WillRepeatedly(Throw(42)).Times(AnyNumber());
-    EXPECT_CALL(*obj, getConsumption()).WillRepeatedly(Throw(39)).Times(AnyNumber());
+    EXPECT_CALL(*obj, getLevel()).Times(AnyNumber()).WillRepeatedly(Throw(42));
+    EXPECT_CALL(*obj, getConsumption()).Times(AnyNumber()).WillRepeatedly(Throw(39));
 
     EXPECT_ANY_THROW(cmd.Execute());
 }
