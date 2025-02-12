@@ -3,7 +3,7 @@
 #include <NotEnoughFuel.h>
 
 CheckFuel::CheckFuel(IFuelObjectPtr pFuelObject)
-    :m_pFuelObject(pFuelPbject)
+    :m_pFuelObject(pFuelObject)
 {
 }
 
