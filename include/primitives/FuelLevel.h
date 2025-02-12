@@ -8,7 +8,10 @@ class FuelLevel
 public:
     FuelLevel(int level);
 
+    friend int operator == (const FuelLevel &level1, const FuelLevel &level2);
+    friend int operator != (const FuelLevel &level1, const FuelLevel &level2);
     friend int operator < (const FuelLevel &level1, const FuelLevel &level2);
+    
     friend FuelLevel operator - (const FuelLevel &level1, const FuelLevel &level2);
 };
 

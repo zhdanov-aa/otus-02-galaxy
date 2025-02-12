@@ -5,6 +5,16 @@ FuelLevel::FuelLevel(int level)
 {
 }
 
+int operator == (const FuelLevel &level1, const FuelLevel &level2)
+{
+    return level1.m_nLevel == level2.m_nLevel;
+}
+
+int operator != (const FuelLevel &level1, const FuelLevel &level2)
+{
+    return level1.m_nLevel != level2.m_nLevel;
+}
+
 int operator < (const FuelLevel &level1, const FuelLevel &level2)
 {
     return level1.m_nLevel < level2.m_nLevel;
