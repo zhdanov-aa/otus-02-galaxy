@@ -9,6 +9,7 @@ using namespace std;
 using ::testing::Throw;
 using ::testing::Return;
 using ::testing::AnyNumber;
+using ::testing::_;
 
 TEST(BurnFuel, InvalidArgument)
 {
