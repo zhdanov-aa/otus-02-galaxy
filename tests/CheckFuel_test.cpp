@@ -50,12 +50,17 @@ TEST(CheckFuel, NotEnoughFuel)
     }
     catch(IException *exception)
     {
-        EXPECT_NE(dynamic_cast<InvalidArgument*>(exception), nullptr);
+        EXPECT_NE(dynamic_cast<NotEnoughFuel*>(exception), nullptr);
         delete exception;
     }
 }
 
-// TEST(CheckFuel, TranslateExceptions)
-// {
-    
-// }
+TEST(CheckFuel, TranslateExceptions)
+{
+    shared_ptr<IFuelObjectMock> obj = make_shared<IFuelObjectMock>();
+    CheckFuel cmd(obj);
+
+    EXPECT_CALL(*obj, getLevel()).WillOnce(Throw(42));
+
+    EXPECT_ANY_THROW(cmd.Execute());
+}
