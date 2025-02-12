@@ -17,6 +17,7 @@ include_directories(./tests/include)
 set(SOURCE_FILES 
     ./source/primitives/Vector2D.cpp
     ./source/primitives/Angle.cpp
+    ./source/primitives/FuelLevel.cpp
 
     ./tests/main.cpp 
     ./tests/Vector2D_test.cpp
