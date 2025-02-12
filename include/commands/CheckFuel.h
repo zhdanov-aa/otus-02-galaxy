@@ -12,7 +12,7 @@ class CheckFuel: public ICommand
 public:
     CheckFuel(IFuelObjectPtr pFuelObject);
 
-    virtual void Execute() override;
+    void Execute() override;
 };
 
 typedef std::shared_ptr<CheckFuel> CheckFuelPtr;

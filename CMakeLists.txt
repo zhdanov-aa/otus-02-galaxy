@@ -38,7 +38,12 @@ set(SOURCE_FILES
     ./source/commands/RepeatHandler.cpp
     ./source/commands/RepeatTwice.cpp
     ./source/commands/RepeatTwiceHandler.cpp
+    ./source/commands/CheckFuel.cpp
+
     ./source/exceptions/FailedRepeat.cpp
+    ./source/exceptions/InvalidArgument.cpp
+    ./source/exceptions/NotEnoughFuel.cpp
+
     ./source/Runner.cpp
 )
 
