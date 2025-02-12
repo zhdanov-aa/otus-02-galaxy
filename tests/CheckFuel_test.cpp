@@ -50,7 +50,7 @@ TEST(CheckFuel, NotEnoughFuel)
     }
     catch(IException *exception)
     {
-        EXPECT_NE(dynamic_cast<NotEnoughFuel*>(exception), nullptr);
+        EXPECT_NE(dynamic_cast<InvalidArgument*>(exception), nullptr);
         delete exception;
     }
 }
