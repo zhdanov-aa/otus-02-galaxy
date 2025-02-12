@@ -1,6 +1,6 @@
 #include <BurnFuel.h>
 
-BurnFuel::BurnFuel(IFuelObjectPtr, FuelLevel burnValue)
+BurnFuel::BurnFuel(IFuelObjectPtr)
 {
     // TODO: Реализовать BurnFuel::BurnFuel()
 }

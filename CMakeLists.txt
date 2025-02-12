@@ -30,6 +30,7 @@ set(SOURCE_FILES
     ./tests/RepeatHandler_test.cpp
     ./tests/Runner_test.cpp
     ./tests/CheckFuel_test.cpp
+    ./tests/BurnFuel_test.cpp
 
     ./source/commands/Move.cpp
     ./source/commands/Rotate.cpp
@@ -40,6 +41,7 @@ set(SOURCE_FILES
     ./source/commands/RepeatTwice.cpp
     ./source/commands/RepeatTwiceHandler.cpp
     ./source/commands/CheckFuel.cpp
+    ./source/commands/BurnFuel.cpp
 
     ./source/exceptions/FailedRepeat.cpp
     ./source/exceptions/InvalidArgument.cpp

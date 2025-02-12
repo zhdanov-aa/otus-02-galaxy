@@ -7,7 +7,7 @@
 class BurnFuel: ICommand
 {
 public:
-    BurnFuel(IFuelObjectPtr, FuelLevel burnValue);
+    BurnFuel(IFuelObjectPtr);
 
     void Execute() override;
 };
