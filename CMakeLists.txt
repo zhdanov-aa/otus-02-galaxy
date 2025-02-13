@@ -42,10 +42,12 @@ set(SOURCE_FILES
     ./source/commands/RepeatTwiceHandler.cpp
     ./source/commands/CheckFuel.cpp
     ./source/commands/BurnFuel.cpp
+    ./source/commands/MacroCommand.cpp
 
     ./source/exceptions/FailedRepeat.cpp
     ./source/exceptions/InvalidArgument.cpp
     ./source/exceptions/NotEnoughFuel.cpp
+    ./source/exceptions/CommandException.cpp
 
     ./source/Runner.cpp
 )
