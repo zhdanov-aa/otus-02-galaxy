@@ -53,7 +53,7 @@ TEST(MacroCommand, StopOnException)
         InSequence s;
 
         EXPECT_CALL(*cmd1, Execute());
-        EXPECT_CALL(*cmd2, Execute()).WillOnce(Throw new IExceptionMock);
+        EXPECT_CALL(*cmd2, Execute()).WillOnce(Throw(new IExceptionMock));
     }
     
     try
