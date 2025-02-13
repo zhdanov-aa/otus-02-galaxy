@@ -13,9 +13,9 @@ using ::testing::_;
 TEST(MacroCommand, ExecuteCommands)
 {
     shared_ptr<ICommandQueueMock> commands = make_shared<ICommandQueueMock>();
-    shared_ptr<ICommand> cmd1 = make_shared<ICommand>();
-    shared_ptr<ICommand> cmd2 = make_shared<ICommand>();
-    shared_ptr<ICommand> cmd3 = make_shared<ICommand>();
+    shared_ptr<ICommandMock> cmd1 = make_shared<ICommandMock>();
+    shared_ptr<ICommandMock> cmd2 = make_shared<ICommandMock>();
+    shared_ptr<ICommandMock> cmd3 = make_shared<ICommandMock>();
     MacroCommand cmd(commands);
 
     EXPECT_CALL(*commands, GetCommand())
