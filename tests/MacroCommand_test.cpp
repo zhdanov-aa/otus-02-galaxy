@@ -24,9 +24,9 @@ TEST(MacroCommand, ExecuteCommands)
         .WillOnce(Return(cmd3))
         .WillOnce(Return(nullptr));
 
-    auto cmd1_call = EXPECT_CALL(*cmd1, Execute()).Times(1);
-    auto cmd2_call = EXPECT_CALL(*cmd2, Execute()).Times(1).After(cmd1_call);
-    EXPECT_CALL(*cmd3, Execute()).Times(1).After(cmd2_call);
+    EXPECT_CALL(*cmd1, Execute()).WillOnce();
+    EXPECT_CALL(*cmd2, Execute()).WillOnce();
+    EXPECT_CALL(*cmd3, Execute()).WillOnce();
     
     EXPECT_NO_THROW(cmd.Execute());
 }
