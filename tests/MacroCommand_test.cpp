@@ -9,6 +9,7 @@ using ::testing::Throw;
 using ::testing::Return;
 using ::testing::AnyNumber;
 using ::testing::_;
+using ::testing::InSequence;
 
 TEST(MacroCommand, ExecuteCommands)
 {
@@ -24,9 +25,13 @@ TEST(MacroCommand, ExecuteCommands)
         .WillOnce(Return(cmd3))
         .WillOnce(Return(nullptr));
 
-    EXPECT_CALL(*cmd1, Execute());
-    EXPECT_CALL(*cmd2, Execute());
-    EXPECT_CALL(*cmd3, Execute());
+    {
+        InSequence s;
+
+        EXPECT_CALL(*cmd1, Execute());
+        EXPECT_CALL(*cmd2, Execute());
+        EXPECT_CALL(*cmd3, Execute());
+    }
     
     EXPECT_NO_THROW(cmd.Execute());
 }
