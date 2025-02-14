@@ -5,7 +5,7 @@
 #include <IFuelObject.h>
 #include <memory>
 
-class BurnFuel: ICommand
+class BurnFuel: public ICommand
 {
     IFuelObjectPtr m_pFuelObject;
 
