@@ -1,5 +1,6 @@
 #include <Move.h>
 #include <stdexcept>
+#include <InvalidArgument.h>
 
 Move::Move(std::shared_ptr<IMovingObject> moveObject)
 {
