@@ -34,7 +34,7 @@ TEST(StraightLineMovement, MoveAndBurn)
         .WillOnce(Return(nullptr));
 
     EXPECT_CALL(*fuelObject, getLevel()).WillOnce(Return(FuelLevel(100)));
-    EXPECT_CALL(*fuelObject, getConsumption()).WillOnce(Return(FuelLevel(10)));
+    EXPECT_CALL(*fuelObject, getConsumption()).Times(2).WillOnce(Return(FuelLevel(10)));
     EXPECT_CALL(*movingObject, getLocation()).WillOnce(Return(Vector2D(100,100)));
     EXPECT_CALL(*movingObject, getVelocity()).WillOnce(Return(Vector2D(2,4)));
     EXPECT_CALL(*movingObject, setLocation(Vector2D(102,104)));
