@@ -16,11 +16,29 @@ using ::testing::AnyNumber;
 
 TEST(StraightLineMovement, MoveAndBurn)
 {
-    CheckFuelPtr checkFuel = male_shared<CheckFuel>()
+    shared_ptr<IMovableObjectMock> movableObject = make_shared<IMovableObjectMock>();
+    shared_ptr<IFuelObjectMock> fuelObject = make_shared<IFuelObjectMock>();
+
+    CheckFuelPtr checkFuelCmd = make_shared<CheckFuel>(fuelObject);
+    shared_ptr<Move> moveCmd = make_shared<Move>(movableObject);
+    BurnFuelPtr burnFuelCmd = make_shared<BurnFuel>(fuelObject);
 
     shared_ptr<ICommandQueueMock> commands = make_shared<ICommandQueueMock>();
 
     MacroCommand cmd(commands);
 
-    EXPECT_NO_THROW(cmd.Execute);
+    EXPECT_CALL(*comands, GetCommand())
+        .WillOnce(Return(checkFuelCmd))
+        .WillOnce(Return(moveCmd))
+        .WillOnce(Return(burnFuelCmd))
+        .WillOnce(Return(nullptr));
+
+    EXPECT_CALL(*fuelObject, getLevel()).WillOnce(Return(FuelLevel(100)));
+    EXPECT_CALL(*fuelObject, getConsumption()).WillOnce(Return(FuelLevel(10)));
+    EXPECT_CALL(*movableObject, getLocation()).WillOnce(Return(Vector2D(100,100)));
+    EXPECT_CALL(*movableObject, getVelocity()).WillOnce(Return(Vector2D(2,4)));
+    EXPECT_CALL(*movableObject, setLocation(Vector2D(102,104)));
+    EXPECT_CALL(*fuelObject, setLevel(FuelLevel(90)));
+
+    EXPECT_NO_THROW(cmd.Execute());
 }
