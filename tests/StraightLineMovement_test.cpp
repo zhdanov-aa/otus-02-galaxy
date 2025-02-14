@@ -27,7 +27,7 @@ TEST(StraightLineMovement, MoveAndBurn)
 
     MacroCommand cmd(commands);
 
-    EXPECT_CALL(*comands, GetCommand())
+    EXPECT_CALL(*commands, GetCommand())
         .WillOnce(Return(checkFuelCmd))
         .WillOnce(Return(moveCmd))
         .WillOnce(Return(burnFuelCmd))
