@@ -9,7 +9,7 @@ ChangeMovementDirection::ChangeMovementDirection(IMovementDirectionObjectPtr pOb
 
 void ChangeMovementDirection::Execute()
 {
-    if (m_pObject == null)
+    if (m_pObject == nullptr)
         return new InvalidArgument("ChangeMovementDirection::m_pObject is nullptr");
 
     try
