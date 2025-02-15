@@ -11,9 +11,14 @@ include_directories(/usr/include)
 include_directories(./include)
 include_directories(./include/commands)
 include_directories(./include/exceptions)
+include_directories(./include/primitives)
 include_directories(./tests/include)
 
 set(SOURCE_FILES 
+    ./source/primitives/Vector2D.cpp
+    ./source/primitives/Angle.cpp
+    ./source/primitives/FuelLevel.cpp
+
     ./tests/main.cpp 
     ./tests/Vector2D_test.cpp
     ./tests/Move_test.cpp
@@ -24,6 +29,12 @@ set(SOURCE_FILES
     ./tests/Repeat_test.cpp
     ./tests/RepeatHandler_test.cpp
     ./tests/Runner_test.cpp
+    ./tests/CheckFuel_test.cpp
+    ./tests/BurnFuel_test.cpp
+    ./tests/MacroCommand_test.cpp
+    ./tests/ChangeMovementDirection_test.cpp
+    ./tests/Scenarios_test.cpp
+
     ./source/commands/Move.cpp
     ./source/commands/Rotate.cpp
     ./source/commands/LogException.cpp
@@ -32,9 +43,17 @@ set(SOURCE_FILES
     ./source/commands/RepeatHandler.cpp
     ./source/commands/RepeatTwice.cpp
     ./source/commands/RepeatTwiceHandler.cpp
+    ./source/commands/CheckFuel.cpp
+    ./source/commands/BurnFuel.cpp
+    ./source/commands/MacroCommand.cpp
+    ./source/commands/ChangeMovementDirection.cpp
+
     ./source/exceptions/FailedRepeat.cpp
-    ./source/Vector2D.cpp
-    ./source/Angle.cpp
+    ./source/exceptions/InvalidArgument.cpp
+    ./source/exceptions/NotEnoughFuel.cpp
+    ./source/exceptions/CommandException.cpp
+    ./source/exceptions/UnavailableAction.cpp
+
     ./source/Runner.cpp
 )
 

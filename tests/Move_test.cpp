@@ -2,23 +2,16 @@
 #include <gmock/gmock.h>
 #include <stdexcept>
 #include <Move.h>
+#include <IMovingObject_mock.h>
 
 using ::testing::Throw;
 using ::testing::Return;
 using ::testing::AnyNumber;
 using ::testing::_;
 
-class MovingObjectMock: public IMovingObject
-{
-public:
-    MOCK_METHOD(Vector2D, getLocation, ());
-    MOCK_METHOD(Vector2D, getVelocity, ());
-    MOCK_METHOD(void, setLocation, (Vector2D));
-};
-
 TEST(Move, Moving)
 {
-    std::shared_ptr<MovingObjectMock> mo = std::make_shared<MovingObjectMock>();
+    std::shared_ptr<IMovingObjectMock> mo = std::make_shared<IMovingObjectMock>();
     Move m(mo);
 
     EXPECT_CALL(*mo, getLocation()).WillOnce(Return(Vector2D(12, 5)));
@@ -30,7 +23,7 @@ TEST(Move, Moving)
 
 TEST(Move, GetLocationFailException)
 {
-    std::shared_ptr<MovingObjectMock> mo = std::make_shared<MovingObjectMock>();
+    std::shared_ptr<IMovingObjectMock> mo = std::make_shared<IMovingObjectMock>();
     Move m(mo);
 
     ON_CALL(*mo, getLocation).WillByDefault(Throw(std::runtime_error("getLocation() failed")));
@@ -45,7 +38,7 @@ TEST(Move, GetLocationFailException)
 
 TEST(Move, GetVelocityFailException)
 {
-    std::shared_ptr<MovingObjectMock> mo = std::make_shared<MovingObjectMock>();
+    std::shared_ptr<IMovingObjectMock> mo = std::make_shared<IMovingObjectMock>();
     Move m(mo);
 
     ON_CALL(*mo, getLocation).WillByDefault(Return(Vector2D(12, 5)));
@@ -60,7 +53,7 @@ TEST(Move, GetVelocityFailException)
 
 TEST(Move, SetLocationFailException)
 {
-    std::shared_ptr<MovingObjectMock> mo = std::make_shared<MovingObjectMock>();
+    std::shared_ptr<IMovingObjectMock> mo = std::make_shared<IMovingObjectMock>();
     Move m(mo);
 
     ON_CALL(*mo, getLocation).WillByDefault(Return(Vector2D(12, 5)));
