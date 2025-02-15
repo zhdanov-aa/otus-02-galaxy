@@ -32,8 +32,8 @@ set(SOURCE_FILES
     ./tests/CheckFuel_test.cpp
     ./tests/BurnFuel_test.cpp
     ./tests/MacroCommand_test.cpp
-    ./tests/StraightLineMovement_test.cpp
     ./tests/ChangeMovementDirection_test.cpp
+    ./tests/Scenarios_test.cpp
 
     ./source/commands/Move.cpp
     ./source/commands/Rotate.cpp
