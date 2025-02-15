@@ -17,7 +17,7 @@ TEST(ChangeMovementDirection, NormalExecution)
 
     EXPECT_CALL(*object, getDirection()).WillOnce(Return(Angle(45)));
     EXPECT_CALL(*object, getInstantChange()).WillOnce(Return(Angle(15)));
-    EXPECT_CALL(*object, setDirection(Angle(65)));
+    EXPECT_CALL(*object, setDirection(Angle(60)));
 
     ChangeMovementDirection cmd(object);
 
