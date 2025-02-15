@@ -64,7 +64,7 @@ TEST(ChangeMovementDirection, UnavailableActionCatching_getInstantChange)
     EXPECT_NO_THROW(cmd.Execute());
 }
 
-TEST(ChangeMovementDirection, UnavailableActionCatching_getInstantChange)
+TEST(ChangeMovementDirection, UnavailableActionCatching_setDirection)
 {
     IMovementDirectionObjectMockPtr object = make_shared<IMovementDirectionObjectMock>();
 
