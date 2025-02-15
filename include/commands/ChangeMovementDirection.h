@@ -15,6 +15,6 @@ public:
     void Execute() override;
 };
 
-typedef std:shared_ptr<ChangeMovementDirection> ChangeMovementDirectionPtr;
+typedef std::shared_ptr<ChangeMovementDirection> ChangeMovementDirectionPtr;
 
 #endif
