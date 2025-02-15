@@ -14,7 +14,7 @@ using ::testing::Return;
 using ::testing::_;
 using ::testing::AnyNumber;
 
-TEST(StraightLineMovement, MoveAndBurn)
+TEST(Scenarios, CheckFuel_Move_BurnFuel)
 {
     shared_ptr<IMovingObjectMock> movingObject = make_shared<IMovingObjectMock>();
     shared_ptr<IFuelObjectMock> fuelObject = make_shared<IFuelObjectMock>();
