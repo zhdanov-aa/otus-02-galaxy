@@ -40,10 +40,17 @@ TEST(ChangeMovementDirection, InvalidArgumentThrowing)
     }
 }
 
-// TEST(ChangeMovementDirection, UnavailableActionCatching)
-// {
+TEST(ChangeMovementDirection, UnavailableActionCatching_getDirection)
+{
+    IMovementDirectionObjectMockPtr object = make_shared<IMovementDirectionObjectMock>();
 
-// }
+    EXPECT_CALL(*object, getDirection()).WillOnce(Throw(new UnavailableAction("getDirection")));
+    EXPECT_CALL(*object, getInstantChange()).Times(AnyNumber()).WillOnce(Return(Angle(15)));
+    
+    ChangeMovementDirection cmd(object);
+
+    EXPECT_NO_THROW(cmd.Execute());
+}
 
 // TEST(ChangeMovementDirection, OtherExceptionsSkipping)
 // {
