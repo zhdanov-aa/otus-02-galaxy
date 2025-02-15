@@ -36,7 +36,7 @@ TEST(ChangeMovementDirection, InvalidArgumentThrowing)
     catch (InvalidArgument *pException)
     {
         delete pException;
-        SUCCESS();
+        SUCCEED();
     }
 }
 
