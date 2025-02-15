@@ -24,10 +24,21 @@ TEST(ChangeMovementDirection, NormalExecution)
     EXPECT_NO_THROW(cmd.Execute());
 }
 
-// TEST(ChangeMovementDirection, InvalidArgumentThrowing)
-// {
+TEST(ChangeMovementDirection, InvalidArgumentThrowing)
+{
+    ChangeMovementDirection cmd(nullptr);
 
-// }
+    try
+    {
+        cmd.Execute();
+        FAIL();
+    }
+    catch (InvalidArgument *pException)
+    {
+        delete pException;
+        SUCCESS();
+    }
+}
 
 // TEST(ChangeMovementDirection, UnavailableActionCatching)
 // {
