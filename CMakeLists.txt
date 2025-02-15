@@ -33,6 +33,7 @@ set(SOURCE_FILES
     ./tests/BurnFuel_test.cpp
     ./tests/MacroCommand_test.cpp
     ./tests/StraightLineMovement_test.cpp
+    ./tests/ChangeMovementDirection_test.cpp
 
     ./source/commands/Move.cpp
     ./source/commands/Rotate.cpp
@@ -45,11 +46,13 @@ set(SOURCE_FILES
     ./source/commands/CheckFuel.cpp
     ./source/commands/BurnFuel.cpp
     ./source/commands/MacroCommand.cpp
+    ./source/commands/ChangeMovementDirection.cpp
 
     ./source/exceptions/FailedRepeat.cpp
     ./source/exceptions/InvalidArgument.cpp
     ./source/exceptions/NotEnoughFuel.cpp
     ./source/exceptions/CommandException.cpp
+    ./source/exceptions/UnavailableAction.cpp
 
     ./source/Runner.cpp
 )
