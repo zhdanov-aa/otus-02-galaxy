@@ -2,23 +2,16 @@
 #include <gmock/gmock.h>
 #include <stdexcept>
 #include <Rotate.h>
+#include <IRotatingObject_mock.h>
 
 using ::testing::Throw;
 using ::testing::Return;
 using ::testing::AnyNumber;
 using ::testing::_;
 
-class RotatingObjectMock: public IRotatingObject
-{
-public:
-    MOCK_METHOD(Angle, getAngle, ());
-    MOCK_METHOD(Angle, getRotationSpeed, ());
-    MOCK_METHOD(void, setAngle, (Angle));
-};
-
 TEST(Rotate, Rotating)
 {
-    std::shared_ptr<RotatingObjectMock> ro = std::make_shared<RotatingObjectMock>();
+    std::shared_ptr<IRotatingObjectMock> ro = std::make_shared<IRotatingObjectMock>();
     Rotate r(ro);
 
     EXPECT_CALL(*ro, getAngle()).WillOnce(Return(Angle(90)));
@@ -30,7 +23,7 @@ TEST(Rotate, Rotating)
 
 TEST(Rotate, GetAngleFailException)
 {
-    std::shared_ptr<RotatingObjectMock> ro = std::make_shared<RotatingObjectMock>();
+    std::shared_ptr<IRotatingObjectMock> ro = std::make_shared<IRotatingObjectMock>();
     Rotate r(ro);
 
     ON_CALL(*ro, getAngle).WillByDefault(Throw(std::runtime_error("getAngle() failed")));
@@ -45,7 +38,7 @@ TEST(Rotate, GetAngleFailException)
 
 TEST(Rotate, getRotationSpeedFailException)
 {
-    std::shared_ptr<RotatingObjectMock> ro = std::make_shared<RotatingObjectMock>();
+    std::shared_ptr<IRotatingObjectMock> ro = std::make_shared<IRotatingObjectMock>();
     Rotate r(ro);
 
     ON_CALL(*ro, getAngle).WillByDefault(Return(Angle(90)));
@@ -60,7 +53,7 @@ TEST(Rotate, getRotationSpeedFailException)
 
 TEST(Rotate, SetAngleFailException)
 {
-    std::shared_ptr<RotatingObjectMock> ro = std::make_shared<RotatingObjectMock>();
+    std::shared_ptr<IRotatingObjectMock> ro = std::make_shared<IRotatingObjectMock>();
     Rotate r(ro);
 
     ON_CALL(*ro, getAngle).WillByDefault(Return(Angle(90)));

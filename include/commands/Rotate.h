@@ -15,4 +15,6 @@ public:
     void Execute() override;
 };
 
+typedef std::shared_ptr<Rotate> RotatePtr;
+
 #endif
