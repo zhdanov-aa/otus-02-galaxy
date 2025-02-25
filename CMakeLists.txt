@@ -13,6 +13,8 @@ include_directories(./include/commands)
 include_directories(./include/exceptions)
 include_directories(./include/primitives)
 include_directories(./tests/include)
+include_directories(./exceptions)
+include_directories(./IoC)
 
 set(SOURCE_FILES 
     ./source/primitives/Vector2D.cpp
