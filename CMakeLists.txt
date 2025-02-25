@@ -50,11 +50,11 @@ set(SOURCE_FILES
     ./source/commands/MacroCommand.cpp
     ./source/commands/ChangeMovementDirection.cpp
 
-    ./source/exceptions/FailedRepeat.cpp
-    ./source/exceptions/InvalidArgument.cpp
-    ./source/exceptions/NotEnoughFuel.cpp
-    ./source/exceptions/CommandException.cpp
-    ./source/exceptions/UnavailableAction.cpp
+    ./exceptions/FailedRepeat.cpp
+    ./exceptions/InvalidArgument.cpp
+    ./exceptions/NotEnoughFuel.cpp
+    ./exceptions/CommandException.cpp
+    ./exceptions/UnavailableAction.cpp
 
     ./source/Runner.cpp
 )
