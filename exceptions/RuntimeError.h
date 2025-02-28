@@ -5,7 +5,7 @@
 #include <memory>
 #include <string>
 
-class RuntimeError: IException
+class RuntimeError: public IException
 {
     std::string m_sMessage;
 public:
