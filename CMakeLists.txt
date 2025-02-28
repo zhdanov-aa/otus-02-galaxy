@@ -60,6 +60,7 @@ set(SOURCE_FILES
     ./exceptions/NotEnoughFuel.cpp
     ./exceptions/CommandException.cpp
     ./exceptions/UnavailableAction.cpp
+    ./exceptions/RuntimeError.cpp
 
     ./source/Runner.cpp
 
