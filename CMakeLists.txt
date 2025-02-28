@@ -9,8 +9,8 @@ add_definitions(-DGTEST_LANGUAGE_CXX11)
 
 include_directories(/usr/include)
 include_directories(./include)
-include_directories(./include/commands)
-include_directories(./include/exceptions)
+include_directories(./commands)
+include_directories(./exceptions)
 include_directories(./include/primitives)
 include_directories(./tests/include)
 include_directories(./exceptions)
@@ -37,18 +37,18 @@ set(SOURCE_FILES
     ./tests/ChangeMovementDirection_test.cpp
     ./tests/Scenarios_test.cpp
 
-    ./source/commands/Move.cpp
-    ./source/commands/Rotate.cpp
-    ./source/commands/LogException.cpp
-    ./source/commands/LogExceptionHandler.cpp
-    ./source/commands/Repeat.cpp
-    ./source/commands/RepeatHandler.cpp
-    ./source/commands/RepeatTwice.cpp
-    ./source/commands/RepeatTwiceHandler.cpp
-    ./source/commands/CheckFuel.cpp
-    ./source/commands/BurnFuel.cpp
-    ./source/commands/MacroCommand.cpp
-    ./source/commands/ChangeMovementDirection.cpp
+    ./commands/Move.cpp
+    ./commands/Rotate.cpp
+    ./commands/LogException.cpp
+    ./commands/LogExceptionHandler.cpp
+    ./commands/Repeat.cpp
+    ./commands/RepeatHandler.cpp
+    ./commands/RepeatTwice.cpp
+    ./commands/RepeatTwiceHandler.cpp
+    ./commands/CheckFuel.cpp
+    ./commands/BurnFuel.cpp
+    ./commands/MacroCommand.cpp
+    ./commands/ChangeMovementDirection.cpp
 
     ./exceptions/FailedRepeat.cpp
     ./exceptions/InvalidArgument.cpp
