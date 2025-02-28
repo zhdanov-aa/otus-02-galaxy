@@ -11,15 +11,15 @@ include_directories(/usr/include)
 include_directories(./include)
 include_directories(./commands)
 include_directories(./exceptions)
-include_directories(./include/primitives)
+include_directories(./primitives)
 include_directories(./tests/include)
 include_directories(./exceptions)
 include_directories(./IoC)
 
 set(SOURCE_FILES 
-    ./source/primitives/Vector2D.cpp
-    ./source/primitives/Angle.cpp
-    ./source/primitives/FuelLevel.cpp
+    ./primitives/Vector2D.cpp
+    ./primitives/Angle.cpp
+    ./primitives/FuelLevel.cpp
 
     ./tests/main.cpp 
     ./tests/Vector2D_test.cpp
