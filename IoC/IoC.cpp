@@ -1,3 +1,4 @@
 #include <IoC.h>
+#include <ResolverCollection.h>
 
-thread_local ScopeHolder IoC::Scopes;
+IResolverCollectionPtr IoC::Resolvers = std::make_shared<ResolverCollection>();

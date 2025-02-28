@@ -49,6 +49,11 @@ set(SOURCE_FILES
     ./commands/BurnFuel.cpp
     ./commands/MacroCommand.cpp
     ./commands/ChangeMovementDirection.cpp
+    ./commands/FallbackCommand.cpp
+    ./commands/IocNewScopeCommand.cpp
+    ./commands/IocRegisterCommand.cpp
+    ./commands/IocSetScopeAbsoluteCommand.cpp
+    ./commands/IocSetScopeRelativeCommand.cpp
 
     ./exceptions/FailedRepeat.cpp
     ./exceptions/InvalidArgument.cpp
@@ -57,6 +62,12 @@ set(SOURCE_FILES
     ./exceptions/UnavailableAction.cpp
 
     ./source/Runner.cpp
+
+    ./IoC/IoC.cpp
+    ./IoC/ResolverCollection.cpp
+    ./IoC/Scope.cpp
+    ./IoC/ScopeChangerAdapter.cpp
+    ./IoC/ScopeContainer.cpp
 )
 
 find_package(Threads REQUIRED)
