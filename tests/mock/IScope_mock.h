@@ -6,7 +6,7 @@
 #include <memory>
 #include <string>
 
-sing namespace std;
+using namespace std;
 
 class IScopeMock: public IScope
 {
