@@ -22,3 +22,41 @@ TEST(IocNewScopeCommand, SunnyDayTest)
 
     EXPECT_NO_THROW(cmd.Execute());
 }
+
+TEST(IocNewScopeCommand, InvalidArguments)
+{
+    string scopeName = "testScope";
+    IocNewScopeCommand cmd(nullptr, scopeName);
+
+    try
+    {
+        cmd.Execute();
+        FAIL();
+    }
+    catch(IException *exception)
+    {
+        delete exception;
+        SUCCEED();
+    }
+}
+
+TEST(IocNewScopeCommand, ScopeAlreadyExists)
+{
+    IScopeMockPtr currentScope = make_shared<IScopeMock>();
+    IScopeMockPtr existingScope = make_shared<IScopeMock>();
+    string scopeName = "testScope";
+    IocNewScopeCommand cmd(currentScope, scopeName);
+
+    EXPECT_CALL(*currentScope, FindChild(scopeName)).WillOnce(Return(existingScope));
+
+    try
+    {
+        cmd.Execute();
+        FAIL();
+    }
+    catch(IException *exception)
+    {
+        delete exception;
+        SUCCEED();
+    }
+}
