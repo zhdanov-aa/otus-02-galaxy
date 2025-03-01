@@ -12,7 +12,7 @@ include_directories(./include)
 include_directories(./commands)
 include_directories(./exceptions)
 include_directories(./primitives)
-include_directories(./tests/include)
+include_directories(./tests/mock)
 include_directories(./exceptions)
 include_directories(./IoC)
 
