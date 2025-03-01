@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include <IocNewScopeCommand.h>
+#include <IException.h>
 #include <IScope_mock.h>
 
 using namespace std;
