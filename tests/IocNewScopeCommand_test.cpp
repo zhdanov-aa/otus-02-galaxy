@@ -17,8 +17,8 @@ TEST(IocNewScopeCommand, SunnyDayTest)
     string scopeName = "testScope";
     IocNewScopeCommand cmd(currentScope, scopeName);
 
-    EXPACT_CALL(*currentScope, FindChild(scopeName)).WillOnce(Return(nullptr));
-    EXPACT_CALL(*currentScope, AddChild(_));
+    EXPECT_CALL(*currentScope, FindChild(scopeName)).WillOnce(Return(nullptr));
+    EXPECT_CALL(*currentScope, AddChild(_));
 
-    EXPACT_NO_THROW(cmd.Execute());
+    EXPECT_NO_THROW(cmd.Execute());
 }
