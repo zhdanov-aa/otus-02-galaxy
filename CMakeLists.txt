@@ -36,6 +36,7 @@ set(SOURCE_FILES
     ./tests/MacroCommand_test.cpp
     ./tests/ChangeMovementDirection_test.cpp
     ./tests/Scenarios_test.cpp
+    ./tests/FallbackCommand_test.cpp
 
     ./commands/Move.cpp
     ./commands/Rotate.cpp
