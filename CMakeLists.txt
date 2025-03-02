@@ -39,6 +39,7 @@ set(SOURCE_FILES
     ./tests/FallbackCommand_test.cpp
     ./tests/IocNewScopeCommand_test.cpp
     ./tests/IocRegisterCommand_test.cpp
+    ./tests/IocSetScopeRelativeCommand_test.cpp
 
     ./commands/Move.cpp
     ./commands/Rotate.cpp
