@@ -15,8 +15,8 @@ void IocSetScopeRelativeCommand::Execute()
 
     if (scope != nullptr)
     {
-        if (m_pCurrent == nullptr)
-            throw RuntimeError("IocSetScopeRelativeCommand::Execute(): current scope is nullptr");
+        if (m_pChanger == nullptr)
+            throw RuntimeError("IocSetScopeRelativeCommand::Execute(): scope changer is nullptr");
 
         m_pChanger->Change(scope);
     }
