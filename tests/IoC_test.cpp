@@ -1,5 +1,6 @@
 #include <IoC.h>
 #include <ICommand.h>
+#include <IException.h>
 #include <ResolverContainer.h>
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
@@ -30,6 +31,7 @@ TEST(IoC, RegisterDependecy)
 
 TEST(IoC, CreateScope)
 {
+    try {
     IoC::Resolve<ICommandPtr>("IoC.Scope.Current.Set", "/")->Execute();
     IoC::Resolve<ICommandPtr>("IoC.Scope.New", "subscope_01")->Execute();
     IoC::Resolve<ICommandPtr>("IoC.Scope.Current.Set", "subscope_01")->Execute();
@@ -44,6 +46,13 @@ TEST(IoC, CreateScope)
         string("subscope_01"),
         IoC::Resolve<string>("ScopeName")
     );
+    }
+    catch(IException *exception)
+    {
+        string what = exception->WhatHappened();
+        delete exception;
+        FAIL() << what;
+    }
 }
 
 TEST(IoC, InheritedDependies)
