@@ -5,6 +5,7 @@
 #include <IScope_mock.h>
 #include <IResolverContainer.h>
 #include <IResolverContainer_mock.h>
+#include <IException_mock.h>
 
 using namespace std;
 using ::testing::Throw;
