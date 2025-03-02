@@ -3,6 +3,7 @@
 #include <IocRegisterCommand.h>
 #include <IException.h>
 #include <IScope_mock.h>
+#include <IResolverContainer.h>
 #include <IResolverContainer_mock.h>
 
 using namespace std;
@@ -21,7 +22,7 @@ TEST(IocRegisterCommand, SunnyDayTest)
     IocRegisterCommand cmd(currentScope, dependecyName, container);
 
     EXPECT_CALL(*currentScope, getResolver(dependecyName)).WillOnce(Return(nullptr));
-    EXPECT_CALL(*currentScope, setResolver(dependecyName, container));
+    EXPECT_CALL(*currentScope, setResolver(dependecyName, static_pointer_cast<IResolverContainer>(container)));
 
     EXPECT_NO_THROW(cmd.Execute());
 }
@@ -52,7 +53,8 @@ TEST(IocRegisterCommand, DependecyAlreadyExists)
     string dependecyName = "testDependecy";
     IocRegisterCommand cmd(currentScope, dependecyName, container);
 
-     EXPECT_CALL(*currentScope, getResolver(dependecyName)).WillOnce(Return(existingContainer));
+     EXPECT_CALL(*currentScope, getResolver(dependecyName))
+        .WillOnce(Return(static_pointer_cast<IResolverContainer>(existingContainer)));
 
     try
     {
