@@ -51,7 +51,8 @@ TEST(IocRegisterCommand, DependecyAlreadyExists)
     string dependecyName = "testDependecy";
     IocRegisterCommand cmd(currentScope, dependecyName, container);
 
-    EXPECT_CALL(*currentScope, setResolver(dependecyName, static_pointer_cast<IResolverContainer>(container)));
+    EXPECT_CALL(*currentScope, setResolver(dependecyName, static_pointer_cast<IResolverContainer>(container)))
+        .WillOnce(Throw(new IExceptionMock()));
 
     try
     {
