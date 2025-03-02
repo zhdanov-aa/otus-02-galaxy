@@ -21,7 +21,7 @@ TEST(IocRegisterCommand, SunnyDayTest)
     IocRegisterCommand cmd(currentScope, dependecyName, container);
 
     EXPECT_CALL(*currentScope, getResolver(dependecyName)).WillOnce(Return(nullptr));
-    EXPECT_CALL(*currentScope, setResolver(_));
+    EXPECT_CALL(*currentScope, setResolver(dependecyName, container));
 
     EXPECT_NO_THROW(cmd.Execute());
 }
