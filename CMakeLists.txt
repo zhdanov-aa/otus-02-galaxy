@@ -9,15 +9,17 @@ add_definitions(-DGTEST_LANGUAGE_CXX11)
 
 include_directories(/usr/include)
 include_directories(./include)
-include_directories(./include/commands)
-include_directories(./include/exceptions)
-include_directories(./include/primitives)
-include_directories(./tests/include)
+include_directories(./commands)
+include_directories(./exceptions)
+include_directories(./primitives)
+include_directories(./tests/mock)
+include_directories(./exceptions)
+include_directories(./IoC)
 
 set(SOURCE_FILES 
-    ./source/primitives/Vector2D.cpp
-    ./source/primitives/Angle.cpp
-    ./source/primitives/FuelLevel.cpp
+    ./primitives/Vector2D.cpp
+    ./primitives/Angle.cpp
+    ./primitives/FuelLevel.cpp
 
     ./tests/main.cpp 
     ./tests/Vector2D_test.cpp
@@ -34,27 +36,45 @@ set(SOURCE_FILES
     ./tests/MacroCommand_test.cpp
     ./tests/ChangeMovementDirection_test.cpp
     ./tests/Scenarios_test.cpp
+    ./tests/FallbackCommand_test.cpp
+    ./tests/IocNewScopeCommand_test.cpp
+    ./tests/IocRegisterCommand_test.cpp
+    ./tests/IocSetScopeRelativeCommand_test.cpp
+    ./tests/IocSetScopeAbsoluteCommand_test.cpp
+    ./tests/IoC_test.cpp
 
-    ./source/commands/Move.cpp
-    ./source/commands/Rotate.cpp
-    ./source/commands/LogException.cpp
-    ./source/commands/LogExceptionHandler.cpp
-    ./source/commands/Repeat.cpp
-    ./source/commands/RepeatHandler.cpp
-    ./source/commands/RepeatTwice.cpp
-    ./source/commands/RepeatTwiceHandler.cpp
-    ./source/commands/CheckFuel.cpp
-    ./source/commands/BurnFuel.cpp
-    ./source/commands/MacroCommand.cpp
-    ./source/commands/ChangeMovementDirection.cpp
+    ./commands/Move.cpp
+    ./commands/Rotate.cpp
+    ./commands/LogException.cpp
+    ./commands/LogExceptionHandler.cpp
+    ./commands/Repeat.cpp
+    ./commands/RepeatHandler.cpp
+    ./commands/RepeatTwice.cpp
+    ./commands/RepeatTwiceHandler.cpp
+    ./commands/CheckFuel.cpp
+    ./commands/BurnFuel.cpp
+    ./commands/MacroCommand.cpp
+    ./commands/ChangeMovementDirection.cpp
+    ./commands/FallbackCommand.cpp
+    ./commands/IocNewScopeCommand.cpp
+    ./commands/IocRegisterCommand.cpp
+    ./commands/IocSetScopeAbsoluteCommand.cpp
+    ./commands/IocSetScopeRelativeCommand.cpp
 
-    ./source/exceptions/FailedRepeat.cpp
-    ./source/exceptions/InvalidArgument.cpp
-    ./source/exceptions/NotEnoughFuel.cpp
-    ./source/exceptions/CommandException.cpp
-    ./source/exceptions/UnavailableAction.cpp
+    ./exceptions/FailedRepeat.cpp
+    ./exceptions/InvalidArgument.cpp
+    ./exceptions/NotEnoughFuel.cpp
+    ./exceptions/CommandException.cpp
+    ./exceptions/UnavailableAction.cpp
+    ./exceptions/RuntimeError.cpp
 
     ./source/Runner.cpp
+
+    ./IoC/IoC.cpp
+    ./IoC/ResolverCollection.cpp
+    ./IoC/Scope.cpp
+    ./IoC/ScopeChangerAdapter.cpp
+    ./IoC/ScopeContainer.cpp
 )
 
 find_package(Threads REQUIRED)
