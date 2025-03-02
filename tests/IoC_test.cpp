@@ -6,6 +6,7 @@
 #include <gmock/gmock.h>
 #include <memory>
 #include <string>
+#include <thread>
 
 using namespace std;
 using ::testing::Throw;
@@ -65,4 +66,36 @@ TEST(IoC, InheritedDependies)
         string("root"),
         IoC::Resolve<string>("ScopeName")
     );
+}
+
+TEST(IoC, MultithreadedTest)
+{
+    IoC::Resolve<ICommandPtr>("IoC.Scope.Current.Set", "/")->Execute();
+    IoC::Resolve<ICommandPtr>("IoC.Scope.New", "subscope_03")->Execute();
+    IoC::Resolve<ICommandPtr>("IoC.Scope.Current.Set", "subscope_03")->Execute();
+
+    IoC::Resolve<ICommandPtr>(
+        "IoC.Register",
+        "ScopeName",
+        make_container(std::function<string()>( [](){ return string("subscope_03"); } ))
+    )->Execute();
+
+    std::thread t( []() {
+        IoC::Resolve<ICommandPtr>("IoC.Scope.Current.Set", "/")->Execute();
+        IoC::Resolve<ICommandPtr>("IoC.Scope.New", "subscope_03_thread")->Execute();
+        IoC::Resolve<ICommandPtr>("IoC.Scope.Current.Set", "subscope_03_thread")->Execute();
+    
+        IoC::Resolve<ICommandPtr>(
+            "IoC.Register",
+            "ScopeName",
+            make_container(std::function<string()>( [](){ return string("subscope_03_thread"); } ))
+        )->Execute();
+    
+    } );
+    t.join();
+
+    EXPECT_EQ(
+        string("subscope_03"),
+        IoC::Resolve<string>("ScopeName")
+    );    
 }
