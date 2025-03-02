@@ -1,4 +1,5 @@
 #include <Scope.h>
+#include <RuntimeError.h>
 #include <algorithm>
 
 Scope::Scope(string name, IScopePtr parent)
@@ -42,5 +43,10 @@ IResolverContainerPtr Scope::getResolver(std::string dependecy)
 
 void Scope::setResolver(std::string dependecy, IResolverContainerPtr resolver)
 {
+    if (m_mapDependies[dependecy] != nullptr)
+        throw new RuntimeError(
+            std::string("Scope::setResolver(): dependecy \"") + 
+            dependecy + std::string("\" already exist"));
+
     m_mapDependies[dependecy] = resolver;
 }
