@@ -8,10 +8,16 @@ IocSetScopeRelativeCommand::IocSetScopeRelativeCommand(IScopePtr current, IScope
 
 void IocSetScopeRelativeCommand::Execute()
 {
+    if (m_pCurrent == nullptr)
+        throw RuntimeError("IocSetScopeRelativeCommand::Execute(): current scope is nullptr");
+
     auto scope = m_pCurrent->FindChild(m_sTargetScope);
 
     if (scope != nullptr)
     {
+        if (m_pCurrent == nullptr)
+            throw RuntimeError("IocSetScopeRelativeCommand::Execute(): current scope is nullptr");
+
         m_pChanger->Change(scope);
     }
     else
