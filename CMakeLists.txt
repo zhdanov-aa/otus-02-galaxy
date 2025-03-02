@@ -41,6 +41,7 @@ set(SOURCE_FILES
     ./tests/IocRegisterCommand_test.cpp
     ./tests/IocSetScopeRelativeCommand_test.cpp
     ./tests/IocSetScopeAbsoluteCommand_test.cpp
+    ./tests/IoC_test.cpp
 
     ./commands/Move.cpp
     ./commands/Rotate.cpp
