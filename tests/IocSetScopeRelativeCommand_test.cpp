@@ -19,7 +19,7 @@ TEST(IocSetScopeRelativeCommand, SunnyDayTest)
     IScopeMockPtr currentScope = make_shared<IScopeMock>();
     IScopeMockPtr targetScope = make_shared<IScopeMock>();
     string targetScopeName = "TestScope";
-    IScopeChangerMockPtr scopeChanger = make_shared<IScopeChanger>();
+    IScopeChangerMockPtr scopeChanger = make_shared<IScopeChangerMock>();
 
     IocSetScopeRelativeCommand cmd(currentScope, scopeChanger, targetScopeName);
 
@@ -28,7 +28,7 @@ TEST(IocSetScopeRelativeCommand, SunnyDayTest)
             Return(static_pointer_cast<IScope>(targetScope))
         );
 
-    EXPECT_CALL(*scopeChanger, Change(static_pointer_cast<IScope>(targerScope)));
+    EXPECT_CALL(*scopeChanger, Change(static_pointer_cast<IScope>(targetScope)));
 
     EXPECT_NO_THROW(cmd.Execute());
 }
