@@ -32,20 +32,20 @@ TEST(IoC, RegisterDependecy)
 TEST(IoC, CreateScope)
 {
     try {
-    IoC::Resolve<ICommandPtr>("IoC.Scope.Current.Set", "/")->Execute();
-    IoC::Resolve<ICommandPtr>("IoC.Scope.New", "subscope_01")->Execute();
-    IoC::Resolve<ICommandPtr>("IoC.Scope.Current.Set", "subscope_01")->Execute();
+        IoC::Resolve<ICommandPtr>("IoC.Scope.Current.Set", "/")->Execute();
+        IoC::Resolve<ICommandPtr>("IoC.Scope.New", "subscope_01")->Execute();
+        IoC::Resolve<ICommandPtr>("IoC.Scope.Current.Set", "subscope_01")->Execute();
 
-    IoC::Resolve<ICommandPtr>(
-        "IoC.Register",
-        "ScopeName",
-        make_container(std::function<string()>( [](){ return string("subscope_01"); } ))
-        )->Execute();
-    
-    EXPECT_EQ(
-        string("subscope_01"),
-        IoC::Resolve<string>("ScopeName")
-    );
+        IoC::Resolve<ICommandPtr>(
+            "IoC.Register",
+            "ScopeName",
+            make_container(std::function<string()>( [](){ return string("subscope_01"); } ))
+            )->Execute();
+        
+        EXPECT_EQ(
+            string("subscope_01"),
+            IoC::Resolve<string>("ScopeName")
+        );
     }
     catch(IException *exception)
     {

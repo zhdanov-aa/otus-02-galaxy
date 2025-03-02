@@ -21,7 +21,6 @@ TEST(IocRegisterCommand, SunnyDayTest)
     string dependecyName = "testDependecy";
     IocRegisterCommand cmd(currentScope, dependecyName, container);
 
-    EXPECT_CALL(*currentScope, getResolver(dependecyName)).WillOnce(Return(nullptr));
     EXPECT_CALL(*currentScope, setResolver(dependecyName, static_pointer_cast<IResolverContainer>(container)));
 
     EXPECT_NO_THROW(cmd.Execute());
@@ -49,12 +48,10 @@ TEST(IocRegisterCommand, DependecyAlreadyExists)
 {
     IScopeMockPtr currentScope = make_shared<IScopeMock>();
     IResolverContainerMockPtr container = make_shared<IResolverContainerMock>();
-    IResolverContainerMockPtr existingContainer = make_shared<IResolverContainerMock>();
     string dependecyName = "testDependecy";
     IocRegisterCommand cmd(currentScope, dependecyName, container);
 
-     EXPECT_CALL(*currentScope, getResolver(dependecyName))
-        .WillOnce(Return(static_pointer_cast<IResolverContainer>(existingContainer)));
+    EXPECT_CALL(*currentScope, setResolver(dependecyName, static_pointer_cast<IResolverContainer>(container)));
 
     try
     {
