@@ -3,6 +3,7 @@
 #include <IocRegisterCommand.h>
 #include <IException.h>
 #include <IScope_mock.h>
+#include <IResolverContainer_mock.h>
 
 using namespace std;
 using ::testing::Throw;
@@ -15,19 +16,21 @@ using ::testing::InSequence;
 TEST(IocRegisterCommand, SunnyDayTest)
 {
     IScopeMockPtr currentScope = make_shared<IScopeMock>();
-    string scopeName = "testScope";
-    IocRegisterCommand cmd(currentScope, scopeName);
+    IResolverContainerMockPtr container = make_shared<IResolverContainerMock>();
+    string dependecyName = "testDependecy";
+    IocRegisterCommand cmd(currentScope, dependecyName, container);
 
-    EXPECT_CALL(*currentScope, FindChild(scopeName)).WillOnce(Return(nullptr));
-    EXPECT_CALL(*currentScope, AddChild(_));
+    EXPECT_CALL(*currentScope, getResolver(dependecyName)).WillOnce(Return(nullptr));
+    EXPECT_CALL(*currentScope, setResolver(_));
 
     EXPECT_NO_THROW(cmd.Execute());
 }
 
 TEST(IocRegisterCommand, InvalidArguments)
 {
-    string scopeName = "testScope";
-    IocRegisterCommand cmd(nullptr, scopeName);
+    IResolverContainerMockPtr container = make_shared<IResolverContainerMock>();
+    string dependecyName = "testDependecy";
+    IocRegisterCommand cmd(nullptr, dependecyName, container);
 
     try
     {
@@ -41,14 +44,15 @@ TEST(IocRegisterCommand, InvalidArguments)
     }
 }
 
-TEST(IocRegisterCommand, ScopeAlreadyExists)
+TEST(IocRegisterCommand, DependecyAlreadyExists)
 {
     IScopeMockPtr currentScope = make_shared<IScopeMock>();
-    IScopeMockPtr existingScope = make_shared<IScopeMock>();
-    string scopeName = "testScope";
-    IocRegisterCommand cmd(currentScope, scopeName);
+    IResolverContainerMockPtr container = make_shared<IResolverContainerMock>();
+    IResolverContainerMockPtr existingContainer = make_shared<IResolverContainerMock>();
+    string dependecyName = "testDependecy";
+    IocRegisterCommand cmd(currentScope, dependecyName, container);
 
-    EXPECT_CALL(*currentScope, FindChild(scopeName)).WillOnce(Return(existingScope));
+     EXPECT_CALL(*currentScope, getResolver(dependecyName)).WillOnce(Return(existingContainer));
 
     try
     {
