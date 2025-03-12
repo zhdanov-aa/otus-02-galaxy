@@ -17,9 +17,9 @@ include_directories(./exceptions)
 include_directories(./IoC)
 
 set(SOURCE_FILES 
-    ./primitives/Vector2D.cpp
-    ./primitives/Angle.cpp
-    ./primitives/FuelLevel.cpp
+    ./primitives/Vector2D.cpp ./primitives/Vector2D.h
+    ./primitives/Angle.cpp ./primitives/Angle.h
+    ./primitives/FuelLevel.cpp ./primitives/FuelLevel.h
 
     ./tests/main.cpp 
     ./tests/Vector2D_test.cpp
