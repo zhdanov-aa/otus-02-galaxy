@@ -20,8 +20,14 @@ class AsyncRunner
 
 public:
     AsyncRunner(BlockingQueuePtr commandQueue);
+    ~AsyncRunner();
+
+    void setStartAction(std::function<void()> action);
+    void setStopAction(std::function<void()> action);
+    void setCheckContinueAction(std::function<bool()> action);
 
     void Start();
+    void Stop();
 };
 
 #endif // ASYNCRUNNER_H

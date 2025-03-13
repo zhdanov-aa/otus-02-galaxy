@@ -35,6 +35,26 @@ AsyncRunner::AsyncRunner(BlockingQueuePtr commandQueue)
     m_checkContinueAction = [](){ return true; };
 }
 
+AsyncRunner::~AsyncRunner()
+{
+    Stop();
+}
+
+void AsyncRunner::setStartAction(std::function<void ()> action)
+{
+    m_onStartAction = action;
+}
+
+void AsyncRunner::setStopAction(std::function<void ()> action)
+{
+    m_onStopAction = action;
+}
+
+void AsyncRunner::setCheckContinueAction(std::function<bool ()> action)
+{
+    m_checkContinueAction = action;
+}
+
 void AsyncRunner::Start()
 {
     if(m_currentThread == nullptr)
@@ -44,5 +64,15 @@ void AsyncRunner::Start()
                 ThreadFunction();
             }
             );
+    }
+}
+
+void AsyncRunner::Stop()
+{
+    if (m_currentThread != nullptr)
+    {
+        setCheckContinueAction([](){return false;});
+        m_currentThread->join();
+        m_currentThread = nullptr;
     }
 }
