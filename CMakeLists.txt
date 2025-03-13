@@ -15,6 +15,7 @@ include_directories(./primitives)
 include_directories(./tests/mock)
 include_directories(./exceptions)
 include_directories(./IoC)
+include_directories(AsyncRunner)
 
 set(SOURCE_FILES 
     ./primitives/Vector2D.cpp ./primitives/Vector2D.h
@@ -75,6 +76,8 @@ set(SOURCE_FILES
     ./IoC/Scope.cpp
     ./IoC/ScopeChangerAdapter.cpp
     ./IoC/ScopeContainer.cpp
+
+    AsyncRunner/AsyncRunner.h AsyncRunner/AsyncRunner.cpp
 )
 
 find_package(Threads REQUIRED)
