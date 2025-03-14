@@ -6,7 +6,7 @@
 #include <memory>
 #include <thread>
 
-class AsyncRunner
+class AsyncRunner: public std::enable_shared_from_this<AsyncRunner>
 {
     BlockingQueuePtr m_CommandQueue;
 

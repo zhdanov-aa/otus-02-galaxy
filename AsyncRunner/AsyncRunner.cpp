@@ -2,6 +2,7 @@
 #include <ICommand.h>
 #include <IException.h>
 #include <IoC.h>
+#include <HardStopCommand.h>
 
 void AsyncRunner::ThreadFunction()
 {
@@ -76,7 +77,7 @@ void AsyncRunner::Stop()
 {
     if (m_currentThread != nullptr)
     {
-        setCheckContinueAction([](){return false;});
+        m_CommandQueue->Push(std::make_shared<HardStopCommand>(shared_from_this()));
         m_currentThread->join();
         m_currentThread = nullptr;
     }
