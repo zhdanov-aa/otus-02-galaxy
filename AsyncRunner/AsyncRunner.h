@@ -22,6 +22,8 @@ public:
     AsyncRunner(BlockingQueuePtr commandQueue);
     ~AsyncRunner();
 
+    BlockingQueuePtr getQueue();
+
     void setStartAction(std::function<void()> action);
     void setStopAction(std::function<void()> action);
     void setCheckContinueAction(std::function<bool()> action);
@@ -29,5 +31,7 @@ public:
     void Start();
     void Stop();
 };
+
+using AsyncRunnerPtr = std::shared_ptr<AsyncRunner>;
 
 #endif // ASYNCRUNNER_H

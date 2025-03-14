@@ -40,6 +40,11 @@ AsyncRunner::~AsyncRunner()
     Stop();
 }
 
+BlockingQueuePtr AsyncRunner::getQueue()
+{
+    return m_CommandQueue;
+}
+
 void AsyncRunner::setStartAction(std::function<void ()> action)
 {
     m_onStartAction = action;

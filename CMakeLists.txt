@@ -144,5 +144,6 @@ add_executable(galaxy_test
     IoC/ScopeContainer.cpp
 
     AsyncRunner/AsyncRunner.h AsyncRunner/AsyncRunner.cpp
-    AsyncRunner/BlockingQueue.h AsyncRunner/BlockingQueue.cpp)
+    AsyncRunner/BlockingQueue.h AsyncRunner/BlockingQueue.cpp
+    AsyncRunner/HardStopCommand.h AsyncRunner/HardStopCommand.cpp)
 target_link_libraries(galaxy_test PRIVATE ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} GTest::gmock Threads::Threads)
