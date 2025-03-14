@@ -148,5 +148,6 @@ add_executable(galaxy_test
     AsyncRunner/HardStopCommand.h AsyncRunner/HardStopCommand.cpp
     AsyncRunner/SoftStopCommand.h AsyncRunner/SoftStopCommand.cpp
     include/ICommand.h
-    AsyncRunner/StartCommand.h AsyncRunner/StartCommand.cpp)
+    AsyncRunner/StartCommand.h AsyncRunner/StartCommand.cpp
+    AsyncRunner.test/AsyncRunner_test.cpp)
 target_link_libraries(galaxy_test PRIVATE ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} GTest::gmock Threads::Threads)
