@@ -10,7 +10,6 @@
 #include <gmock/gmock.h>
 #include <memory>
 #include <thread>
-#include <chrono>
 #include <mutex>
 #include <condition_variable>
 
@@ -22,24 +21,38 @@ using ::testing::AnyNumber;
 using ::testing::_;
 using ::testing::InSequence;
 
-TEST(AsyncRunner, CheckStartCommand)
+TEST(AsyncRunner, StartTest)
 {
-    IoC::Resolve<ICommandPtr>("IoC.Scope.New", "CheckThreadRunning")->Execute();
-    IoC::Resolve<ICommandPtr>("IoC.Scope.Current.Set", "CheckThreadRunning")->Execute();
+    // Создание scope, где будет проходить проверка
+    IoC::Resolve<ICommandPtr>("IoC.Scope.New", "StartTest")->Execute();
+    IoC::Resolve<ICommandPtr>("IoC.Scope.Current.Set", "StartTest")->Execute();
 
+    // Создание AsyncRunner в текущем scope
     StartCommandPtr startCommand = std::make_shared<StartCommand>();
     startCommand->Execute();
 
     BlockingQueuePtr q;
     AsyncRunnerPtr r;
 
+    // Проверка созданных зависимостей
     EXPECT_NO_THROW(q = IoC::Resolve<BlockingQueuePtr>("AsyncRunner.Queue.Get"));
     EXPECT_NO_THROW(r = IoC::Resolve<AsyncRunnerPtr>("AsyncRunner.Instance.Get"));
 
     EXPECT_NE(q, nullptr);
     EXPECT_NE(r, nullptr);
 
-    //TODO: проверить, что поток запущен
+    // Проверка того, что AsyncRunner запущен (методом выполнения тестовой команды)
+    std::mutex              mutex;
+    std::condition_variable condition;
+    std::shared_ptr<ICommandMock> testCommand = std::make_shared<ICommandMock>();
+
+    EXPECT_CALL(*testCommand, Execute()).WillOnce([&condition](){ condition.notify_one(); });
+
+    q->Push(testCommand);
+
+    std::unique_lock<std::mutex> lock(mutex);
+    condition.wait(lock);
+    SUCCEED();
 }
 
 TEST(AsyncRunner, HardStopTest)
