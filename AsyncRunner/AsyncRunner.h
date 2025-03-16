@@ -6,7 +6,7 @@
 #include <memory>
 #include <thread>
 
-class AsyncRunner: public std::enable_shared_from_this<AsyncRunner>
+class AsyncRunner
 {
     BlockingQueuePtr m_CommandQueue;
 
@@ -29,7 +29,6 @@ public:
     void setCheckContinueAction(std::function<bool()> action);
 
     void Start();
-    void Stop();
 };
 
 using AsyncRunnerPtr = std::shared_ptr<AsyncRunner>;

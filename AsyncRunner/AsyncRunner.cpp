@@ -38,7 +38,12 @@ AsyncRunner::AsyncRunner(BlockingQueuePtr commandQueue)
 
 AsyncRunner::~AsyncRunner()
 {
-    Stop();
+    if (m_currentThread != nullptr)
+    {
+        m_CommandQueue->Push(std::make_shared<HardStopCommand>(std::make_shared<AsyncRunner>(*this)));
+        m_currentThread->join();
+        m_currentThread = nullptr;
+    }
 }
 
 BlockingQueuePtr AsyncRunner::getQueue()
@@ -70,15 +75,5 @@ void AsyncRunner::Start()
                 ThreadFunction();
             }
             );
-    }
-}
-
-void AsyncRunner::Stop()
-{
-    if (m_currentThread != nullptr)
-    {
-        m_CommandQueue->Push(std::make_shared<HardStopCommand>(shared_from_this()));
-        m_currentThread->join();
-        m_currentThread = nullptr;
     }
 }
