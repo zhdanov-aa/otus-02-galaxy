@@ -15,70 +15,139 @@ include_directories(./primitives)
 include_directories(./tests/mock)
 include_directories(./exceptions)
 include_directories(./IoC)
+include_directories(AsyncRunner)
 
-set(SOURCE_FILES 
-    ./primitives/Vector2D.cpp
-    ./primitives/Angle.cpp
-    ./primitives/FuelLevel.cpp
+# set(SOURCE_FILES
+#     ./primitives/Vector2D.cpp ./primitives/Vector2D.h
+#     ./primitives/Angle.cpp ./primitives/Angle.h
+#     ./primitives/FuelLevel.cpp ./primitives/FuelLevel.h
 
-    ./tests/main.cpp 
-    ./tests/Vector2D_test.cpp
-    ./tests/Move_test.cpp
-    ./tests/Angle_test.cpp
-    ./tests/Rotate_test.cpp
-    ./tests/LogException_test.cpp
-    ./tests/LogExceptionHandler_test.cpp
-    ./tests/Repeat_test.cpp
-    ./tests/RepeatHandler_test.cpp
-    ./tests/Runner_test.cpp
-    ./tests/CheckFuel_test.cpp
-    ./tests/BurnFuel_test.cpp
-    ./tests/MacroCommand_test.cpp
-    ./tests/ChangeMovementDirection_test.cpp
-    ./tests/Scenarios_test.cpp
-    ./tests/FallbackCommand_test.cpp
-    ./tests/IocNewScopeCommand_test.cpp
-    ./tests/IocRegisterCommand_test.cpp
-    ./tests/IocSetScopeRelativeCommand_test.cpp
-    ./tests/IocSetScopeAbsoluteCommand_test.cpp
-    ./tests/IoC_test.cpp
+#     ./tests/main.cpp
+#     ./tests/Vector2D_test.cpp
+#     ./tests/Move_test.cpp
+#     ./tests/Angle_test.cpp
+#     ./tests/Rotate_test.cpp
+#     ./tests/LogException_test.cpp
+#     ./tests/LogExceptionHandler_test.cpp
+#     ./tests/Repeat_test.cpp
+#     ./tests/RepeatHandler_test.cpp
+#     ./tests/Runner_test.cpp
+#     ./tests/CheckFuel_test.cpp
+#     ./tests/BurnFuel_test.cpp
+#     ./tests/MacroCommand_test.cpp
+#     ./tests/ChangeMovementDirection_test.cpp
+#     ./tests/Scenarios_test.cpp
+#     ./tests/FallbackCommand_test.cpp
+#     ./tests/IocNewScopeCommand_test.cpp
+#     ./tests/IocRegisterCommand_test.cpp
+#     ./tests/IocSetScopeRelativeCommand_test.cpp
+#     ./tests/IocSetScopeAbsoluteCommand_test.cpp
+#     ./tests/IoC_test.cpp
 
-    ./commands/Move.cpp
-    ./commands/Rotate.cpp
-    ./commands/LogException.cpp
-    ./commands/LogExceptionHandler.cpp
-    ./commands/Repeat.cpp
-    ./commands/RepeatHandler.cpp
-    ./commands/RepeatTwice.cpp
-    ./commands/RepeatTwiceHandler.cpp
-    ./commands/CheckFuel.cpp
-    ./commands/BurnFuel.cpp
-    ./commands/MacroCommand.cpp
-    ./commands/ChangeMovementDirection.cpp
-    ./commands/FallbackCommand.cpp
-    ./commands/IocNewScopeCommand.cpp
-    ./commands/IocRegisterCommand.cpp
-    ./commands/IocSetScopeAbsoluteCommand.cpp
-    ./commands/IocSetScopeRelativeCommand.cpp
+#     ./commands/Move.cpp
+#     ./commands/Rotate.cpp
+#     ./commands/LogException.cpp
+#     ./commands/LogExceptionHandler.cpp
+#     ./commands/Repeat.cpp
+#     ./commands/RepeatHandler.cpp
+#     ./commands/RepeatTwice.cpp
+#     ./commands/RepeatTwiceHandler.cpp
+#     ./commands/CheckFuel.cpp
+#     ./commands/BurnFuel.cpp
+#     ./commands/MacroCommand.cpp
+#     ./commands/ChangeMovementDirection.cpp
+#     ./commands/FallbackCommand.cpp
+#     ./commands/IocNewScopeCommand.cpp
+#     ./commands/IocRegisterCommand.cpp
+#     ./commands/IocSetScopeAbsoluteCommand.cpp
+#     ./commands/IocSetScopeRelativeCommand.cpp
 
-    ./exceptions/FailedRepeat.cpp
-    ./exceptions/InvalidArgument.cpp
-    ./exceptions/NotEnoughFuel.cpp
-    ./exceptions/CommandException.cpp
-    ./exceptions/UnavailableAction.cpp
-    ./exceptions/RuntimeError.cpp
+#     ./exceptions/FailedRepeat.cpp
+#     ./exceptions/InvalidArgument.cpp
+#     ./exceptions/NotEnoughFuel.cpp
+#     ./exceptions/CommandException.cpp
+#     ./exceptions/UnavailableAction.cpp
+#     ./exceptions/RuntimeError.cpp
 
-    ./source/Runner.cpp
+#     ./source/Runner.cpp
 
-    ./IoC/IoC.cpp
-    ./IoC/ResolverCollection.cpp
-    ./IoC/Scope.cpp
-    ./IoC/ScopeChangerAdapter.cpp
-    ./IoC/ScopeContainer.cpp
-)
+#     ./IoC/IoC.cpp
+#     ./IoC/ResolverCollection.cpp
+#     ./IoC/Scope.cpp
+#     ./IoC/ScopeChangerAdapter.cpp
+#     ./IoC/ScopeContainer.cpp
+
+#     AsyncRunner/AsyncRunner.h AsyncRunner/AsyncRunner.cpp
+# )
 
 find_package(Threads REQUIRED)
 find_package(GTest REQUIRED)
 
-add_executable(galaxy_test ${SOURCE_FILES})
+add_executable(galaxy_test
+    primitives/Vector2D.cpp ./primitives/Vector2D.h
+    primitives/Angle.cpp ./primitives/Angle.h
+    primitives/FuelLevel.cpp ./primitives/FuelLevel.h
+
+    tests/main.cpp
+    tests/Vector2D_test.cpp
+    tests/Move_test.cpp
+    tests/Angle_test.cpp
+    tests/Rotate_test.cpp
+    tests/LogException_test.cpp
+    tests/LogExceptionHandler_test.cpp
+    tests/Repeat_test.cpp
+    tests/RepeatHandler_test.cpp
+    tests/Runner_test.cpp
+    tests/CheckFuel_test.cpp
+    tests/BurnFuel_test.cpp
+    tests/MacroCommand_test.cpp
+    tests/ChangeMovementDirection_test.cpp
+    tests/Scenarios_test.cpp
+    tests/FallbackCommand_test.cpp
+    tests/IocNewScopeCommand_test.cpp
+    tests/IocRegisterCommand_test.cpp
+    tests/IocSetScopeRelativeCommand_test.cpp
+    tests/IocSetScopeAbsoluteCommand_test.cpp
+    tests/IoC_test.cpp
+
+    commands/Move.cpp
+    commands/Rotate.cpp
+    commands/LogException.cpp
+    commands/LogExceptionHandler.cpp
+    commands/Repeat.cpp
+    commands/RepeatHandler.cpp
+    commands/RepeatTwice.cpp
+    commands/RepeatTwiceHandler.cpp
+    commands/CheckFuel.cpp
+    commands/BurnFuel.cpp
+    commands/MacroCommand.cpp
+    commands/ChangeMovementDirection.cpp
+    commands/FallbackCommand.cpp
+    commands/IocNewScopeCommand.cpp
+    commands/IocRegisterCommand.cpp
+    commands/IocSetScopeAbsoluteCommand.cpp
+    commands/IocSetScopeRelativeCommand.cpp
+
+    exceptions/FailedRepeat.cpp
+    exceptions/InvalidArgument.cpp
+    exceptions/NotEnoughFuel.cpp
+    exceptions/CommandException.cpp
+    exceptions/UnavailableAction.cpp
+    exceptions/RuntimeError.cpp
+
+    source/Runner.cpp
+
+    IoC/IoC.cpp
+    IoC/ResolverCollection.cpp
+    IoC/Scope.cpp
+    IoC/ScopeChangerAdapter.cpp
+    IoC/ScopeContainer.cpp
+
+    AsyncRunner/AsyncRunner.h AsyncRunner/AsyncRunner.cpp
+    AsyncRunner/BlockingQueue.h AsyncRunner/BlockingQueue.cpp
+    AsyncRunner/HardStopCommand.h AsyncRunner/HardStopCommand.cpp
+    AsyncRunner/SoftStopCommand.h AsyncRunner/SoftStopCommand.cpp
+    include/ICommand.h
+    AsyncRunner/StartCommand.h AsyncRunner/StartCommand.cpp
+    AsyncRunner.test/AsyncRunner_test.cpp)
 target_link_libraries(galaxy_test PRIVATE ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} GTest::gmock Threads::Threads)
