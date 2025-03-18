@@ -49,6 +49,7 @@ add_executable(galaxy_test
     tests/IocSetScopeAbsoluteCommand_test.cpp
     tests/IoC_test.cpp
 
+    commands/ICommand.h
     commands/Move.cpp
     commands/Rotate.cpp
     commands/LogException.cpp
@@ -62,11 +63,8 @@ add_executable(galaxy_test
     commands/MacroCommand.cpp
     commands/ChangeMovementDirection.cpp
     commands/FallbackCommand.cpp
-    commands/IocNewScopeCommand.cpp
-    commands/IocRegisterCommand.cpp
-    commands/IocSetScopeAbsoluteCommand.cpp
-    commands/IocSetScopeRelativeCommand.cpp
 
+    exceptions/IException.h
     exceptions/FailedRepeat.cpp
     exceptions/InvalidArgument.cpp
     exceptions/NotEnoughFuel.cpp
@@ -76,17 +74,25 @@ add_executable(galaxy_test
 
     source/Runner.cpp
 
-    IoC/IoC.cpp
-    IoC/ResolverCollection.cpp
+    IoC/IResolverContainer.h
+    IoC/IResolverCollection.h
+    IoC/ResolverContainer.h
+    IoC/IScope.h
+    IoC/IScopeChanger.h
+    IoC/IoC.cpp IoC/IoC.h
+    IoC/ResolverCollection.cpp IoC/ResolverCollection.h
     IoC/Scope.cpp
-    IoC/ScopeChangerAdapter.cpp
-    IoC/ScopeContainer.cpp
+    IoC/ScopeChangerAdapter.cpp IoC/ScopeChangerAdapter.h
+    IoC/ScopeContainer.cpp IoC/ScopeContainer.h
+    IoC/IocNewScopeCommand.cpp IoC/IocNewScopeCommand.h
+    IoC/IocRegisterCommand.cpp IoC/IocRegisterCommand.h
+    IoC/IocSetScopeAbsoluteCommand.cpp IoC/IocSetScopeAbsoluteCommand.h
+    IoC/IocSetScopeRelativeCommand.cpp IoC/IocSetScopeRelativeCommand.h
 
     AsyncRunner/AsyncRunner.h AsyncRunner/AsyncRunner.cpp
     AsyncRunner/BlockingQueue.h AsyncRunner/BlockingQueue.cpp
     AsyncRunner/HardStopCommand.h AsyncRunner/HardStopCommand.cpp
     AsyncRunner/SoftStopCommand.h AsyncRunner/SoftStopCommand.cpp
-    include/ICommand.h
     AsyncRunner/StartCommand.h AsyncRunner/StartCommand.cpp
     AsyncRunner.test/AsyncRunner_test.cpp)
 target_link_libraries(galaxy_test PRIVATE ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} GTest::gmock Threads::Threads)
