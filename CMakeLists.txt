@@ -17,68 +17,7 @@ include_directories(./exceptions)
 include_directories(./IoC)
 include_directories(AsyncRunner)
 
-# set(SOURCE_FILES
-#     ./primitives/Vector2D.cpp ./primitives/Vector2D.h
-#     ./primitives/Angle.cpp ./primitives/Angle.h
-#     ./primitives/FuelLevel.cpp ./primitives/FuelLevel.h
-
-#     ./tests/main.cpp
-#     ./tests/Vector2D_test.cpp
-#     ./tests/Move_test.cpp
-#     ./tests/Angle_test.cpp
-#     ./tests/Rotate_test.cpp
-#     ./tests/LogException_test.cpp
-#     ./tests/LogExceptionHandler_test.cpp
-#     ./tests/Repeat_test.cpp
-#     ./tests/RepeatHandler_test.cpp
-#     ./tests/Runner_test.cpp
-#     ./tests/CheckFuel_test.cpp
-#     ./tests/BurnFuel_test.cpp
-#     ./tests/MacroCommand_test.cpp
-#     ./tests/ChangeMovementDirection_test.cpp
-#     ./tests/Scenarios_test.cpp
-#     ./tests/FallbackCommand_test.cpp
-#     ./tests/IocNewScopeCommand_test.cpp
-#     ./tests/IocRegisterCommand_test.cpp
-#     ./tests/IocSetScopeRelativeCommand_test.cpp
-#     ./tests/IocSetScopeAbsoluteCommand_test.cpp
-#     ./tests/IoC_test.cpp
-
-#     ./commands/Move.cpp
-#     ./commands/Rotate.cpp
-#     ./commands/LogException.cpp
-#     ./commands/LogExceptionHandler.cpp
-#     ./commands/Repeat.cpp
-#     ./commands/RepeatHandler.cpp
-#     ./commands/RepeatTwice.cpp
-#     ./commands/RepeatTwiceHandler.cpp
-#     ./commands/CheckFuel.cpp
-#     ./commands/BurnFuel.cpp
-#     ./commands/MacroCommand.cpp
-#     ./commands/ChangeMovementDirection.cpp
-#     ./commands/FallbackCommand.cpp
-#     ./commands/IocNewScopeCommand.cpp
-#     ./commands/IocRegisterCommand.cpp
-#     ./commands/IocSetScopeAbsoluteCommand.cpp
-#     ./commands/IocSetScopeRelativeCommand.cpp
-
-#     ./exceptions/FailedRepeat.cpp
-#     ./exceptions/InvalidArgument.cpp
-#     ./exceptions/NotEnoughFuel.cpp
-#     ./exceptions/CommandException.cpp
-#     ./exceptions/UnavailableAction.cpp
-#     ./exceptions/RuntimeError.cpp
-
-#     ./source/Runner.cpp
-
-#     ./IoC/IoC.cpp
-#     ./IoC/ResolverCollection.cpp
-#     ./IoC/Scope.cpp
-#     ./IoC/ScopeChangerAdapter.cpp
-#     ./IoC/ScopeContainer.cpp
-
-#     AsyncRunner/AsyncRunner.h AsyncRunner/AsyncRunner.cpp
-# )
+add_subdirectory(GameServer)
 
 find_package(Threads REQUIRED)
 find_package(GTest REQUIRED)
