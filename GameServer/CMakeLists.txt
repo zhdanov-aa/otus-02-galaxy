@@ -25,4 +25,6 @@ add_executable(game-svr
     ../exceptions/RuntimeError.cpp ../exceptions/RuntimeError.h
     ../commands/FallbackCommand.cpp ../commands/FallbackCommand.h
     ../commands/ICommand.h
-    ../exceptions/IException.h)
+    ../exceptions/IException.h
+    Endpoint.h Endpoint.cpp
+    InterpretCommand.h InterpretCommand.cpp)
