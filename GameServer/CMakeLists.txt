@@ -26,6 +26,7 @@ add_executable(game-svr
     ../commands/FallbackCommand.cpp ../commands/FallbackCommand.h
     ../commands/ICommand.h
     ../exceptions/IException.h
+    ../interface/IOutputCommandStream.h
     Endpoint.h Endpoint.cpp
     InterpretCommand.h InterpretCommand.cpp
     ../AsyncRunner/BlockingQueue.cpp ../AsyncRunner/BlockingQueue.h)

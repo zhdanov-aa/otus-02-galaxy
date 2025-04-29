@@ -17,6 +17,7 @@ include_directories(./exceptions)
 include_directories(./IoC)
 include_directories(AsyncRunner)
 include_directories(GameServer)
+include_directories(interface)
 
 add_subdirectory(GameServer)
 
@@ -95,5 +96,7 @@ add_executable(galaxy_test
     AsyncRunner/HardStopCommand.h AsyncRunner/HardStopCommand.cpp
     AsyncRunner/SoftStopCommand.h AsyncRunner/SoftStopCommand.cpp
     AsyncRunner/StartCommand.h AsyncRunner/StartCommand.cpp
-    AsyncRunner.test/AsyncRunner_test.cpp)
+    AsyncRunner.test/AsyncRunner_test.cpp
+    interface/IOutputCommandStream.h
+    interface/IInputCommandStream.h)
 target_link_libraries(galaxy_test PRIVATE ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} GTest::gmock Threads::Threads)
