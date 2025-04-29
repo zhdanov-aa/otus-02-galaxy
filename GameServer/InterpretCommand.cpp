@@ -1,8 +1,12 @@
 #include "InterpretCommand.h"
 
-InterpretCommand::InterpretCommand() {}
+InterpretCommand::InterpretCommand(json message)
+    :m_Message(message)
+{
+}
 
 
 void InterpretCommand::Execute()
 {
+    // TODO:
 }

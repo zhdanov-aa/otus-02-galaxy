@@ -3,11 +3,16 @@
 
 #include <memory>
 #include <ICommand.h>
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
 
 class InterpretCommand : public ICommand
 {
+    json m_Message;
+
 public:
-    InterpretCommand();
+    InterpretCommand(json message);
 
     void Execute() override;
 };

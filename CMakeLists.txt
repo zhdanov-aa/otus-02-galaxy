@@ -16,6 +16,7 @@ include_directories(./tests/mock)
 include_directories(./exceptions)
 include_directories(./IoC)
 include_directories(AsyncRunner)
+include_directories(GameServer)
 
 add_subdirectory(GameServer)
 

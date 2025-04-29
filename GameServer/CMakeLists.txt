@@ -27,4 +27,5 @@ add_executable(game-svr
     ../commands/ICommand.h
     ../exceptions/IException.h
     Endpoint.h Endpoint.cpp
-    InterpretCommand.h InterpretCommand.cpp)
+    InterpretCommand.h InterpretCommand.cpp
+    ../AsyncRunner/BlockingQueue.cpp ../AsyncRunner/BlockingQueue.h)
