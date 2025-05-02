@@ -26,7 +26,10 @@ public:
             std::dynamic_pointer_cast<ResolverContainerType>(IoC::Resolvers->findContainer(dependecy));
 
         if (container == nullptr)
-            throw new RuntimeError("IoC::Resolve(): resolver not found");
+            throw new RuntimeError(
+                std::string("IoC::Resolve(): resolver <") +
+                dependecy +
+                std::string("> not found"));
 
         return container->getResolver()(args...);
     }
@@ -40,7 +43,10 @@ public:
             std::dynamic_pointer_cast<ResolverContainerType>(IoC::Resolvers->findContainer(dependecy));
 
         if (container == nullptr)
-            throw new RuntimeError("IoC::Resolve(): resolver not found");
+            throw new RuntimeError(
+                std::string("IoC::Resolve(): resolver <") +
+                dependecy +
+                std::string("> not found"));
 
         return container->getResolver()();
     }
