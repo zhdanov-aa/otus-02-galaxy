@@ -3,7 +3,7 @@
 #include <nlohmann/json.hpp>
 #include <RuntimeError.h>
 #include <IoC.h>
-#include <BlockingQueue.h>
+#include <IOutputCommandStream.h>
 
 using json = nlohmann::json;
 
@@ -21,7 +21,7 @@ void Endpoint::HandleMessage(std::string message)
         if (j.contains("game_id"))
         {
             game_id = j["game_id"].get<std::string>();
-            IoC::Resolve<BlockingQueuePtr>("Game.Queue.Get", game_id)->Push(
+            IoC::Resolve<IOutputCommandStreamPtr>("Game.CommandStream.Output.Get", game_id)->Write(
                 std::make_shared<InterpretCommand>(j)
                 );
         }

@@ -29,4 +29,4 @@ add_executable(game-svr
     ../interface/IOutputCommandStream.h
     Endpoint.h Endpoint.cpp
     InterpretCommand.h InterpretCommand.cpp
-    ../AsyncRunner/BlockingQueue.cpp ../AsyncRunner/BlockingQueue.h)
+    ../interface/IOutputCommandStream.h)

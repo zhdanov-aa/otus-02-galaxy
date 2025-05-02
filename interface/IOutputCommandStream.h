@@ -9,7 +9,7 @@ class IOutputCommandStream
 public:
     virtual ~IOutputCommandStream() = default;
 
-    virtual Write(ICommandPtr command) = 0;
+    virtual void Write(ICommandPtr command) = 0;
 };
 
 using IOutputCommandStreamPtr = std::shared_ptr<IOutputCommandStream>;
