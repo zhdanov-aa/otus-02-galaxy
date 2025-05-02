@@ -29,4 +29,5 @@ add_executable(game-svr
     ../interface/IOutputCommandStream.h
     Endpoint.h Endpoint.cpp
     InterpretCommand.h InterpretCommand.cpp
-    ../interface/IOutputCommandStream.h)
+    ../interface/IOutputCommandStream.h
+    ../interface/IGameObject.h)

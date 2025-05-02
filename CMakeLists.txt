@@ -98,5 +98,6 @@ add_executable(galaxy_test
     AsyncRunner/StartCommand.h AsyncRunner/StartCommand.cpp
     AsyncRunner.test/AsyncRunner_test.cpp
     interface/IOutputCommandStream.h
-    interface/IInputCommandStream.h)
+    interface/IInputCommandStream.h
+    interface/IGameObject.h)
 target_link_libraries(galaxy_test PRIVATE ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} GTest::gmock Threads::Threads)
