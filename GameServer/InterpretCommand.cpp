@@ -10,7 +10,7 @@ IGameObjectPtr InterpretCommand::FindObject()
     if (m_Message.contains("object_id"))
     {
         obj = IoC::Resolve<IGameObjectPtr>(
-            "Game.Object.Get",
+            "Game.Objects.Get",
             m_Message["object_id"].get<std::string>());
 
         if (obj == nullptr)
@@ -34,6 +34,7 @@ InterpretCommand::InterpretCommand(json message)
 void InterpretCommand::Execute()
 {
     std::string cmd;
+    auto obj = FindObject();
 
     if (m_Message.contains("command_id"))
         cmd = m_Message["command_id"].get<std::string>();
@@ -41,7 +42,7 @@ void InterpretCommand::Execute()
         throw new RuntimeError("Endpoint::HandleMessage(): message don`t contains <command_id> property");
 
     IoC::Resolve<ICommandPtr>(
-           std::string("Game.Commands.") + cmd + std::string(".Get"),
-           FindObject(),
-           m_Message)->Execute();
+        std::string("Game.Commands.") + cmd + std::string(".Get"),
+        obj,
+        m_Message)->Execute();
 }
