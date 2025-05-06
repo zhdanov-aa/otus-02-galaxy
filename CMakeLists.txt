@@ -8,16 +8,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_definitions(-DGTEST_LANGUAGE_CXX11)
 
 include_directories(/usr/include)
-include_directories(./include)
-include_directories(./commands)
-include_directories(./exceptions)
-include_directories(./primitives)
-include_directories(./tests/mock)
-include_directories(./exceptions)
-include_directories(./IoC)
+include_directories(include)
+include_directories(commands)
+include_directories(exceptions)
+include_directories(primitives)
+include_directories(tests/mock)
+include_directories(exceptions)
+include_directories(IoC)
 include_directories(AsyncRunner)
 include_directories(GameServer)
 include_directories(interface)
+include_directories(interface.mock)
 
 add_subdirectory(GameServer)
 
@@ -99,5 +100,9 @@ add_executable(galaxy_test
     AsyncRunner.test/AsyncRunner_test.cpp
     interface/IOutputCommandStream.h
     interface/IInputCommandStream.h
-    interface/IGameObject.h)
+    interface/IGameObject.h
+    GameServer/Endpoint.cpp GameServer/Endpoint.h GameServer/InterpretCommand.cpp GameServer/InterpretCommand.h
+    GameServer.test/Endpoint_test.cpp
+    GameServer.test/InterpretCommand_test.cpp
+    interface.mock/IGameObject_mock.h interface.mock/IInputCommandStream_mock.h interface.mock/IOutputCommandStream_mock.h)
 target_link_libraries(galaxy_test PRIVATE ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} GTest::gmock Threads::Threads)
